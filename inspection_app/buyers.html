@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <link rel="icon" href="/img/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="/css/template.css" />
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+    <title>JDD Home Inspection</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="Description" content="A complete home inspection check list for professional home inpectors and new home buyers." />
+    <meta name="Keywords" content="" />
+    <meta name="robots" content="index,follow" />
+    <meta name="GOOGLEBOT" content="INDEX, FOLLOW" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="alexaVerifyID" content="8TYgG16pQTW2pnPAEH8l1FgBfOI" />
+    <script type="text/javascript" src="/js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/page_control.js" defer="defer"></script>
+  </head>
+  <body id="body" class="first">
+        <main id="content">
+          <div id="includeHead" class="container col-xs-12 box-shadow"></div>
+          <div id="includeMain" class="container col-xs-12"></div>
+          <div id="includeFoot"></div>
+        </main>
+  </body>
+    <script>
+          var page = location.href.split("/")[3];
+        console.log(page);
+
+        $(function() {
+            $("#includeHead").load("head.html");
+        });
+        $(function() {
+            $("#includeMain").load("pages/" + page);
+        });
+        $(function() {
+            $("#includeFoot").load("foot.html");
+        });
+    </script>
+</div>
+

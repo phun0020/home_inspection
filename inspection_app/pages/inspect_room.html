@@ -1,0 +1,80 @@
+<div id="rooms-wrapper">
+  <header id="includeHead"></header>
+
+  <div class="col col-xs-12 text-center col-sm-10 col-sm-offset-1">
+
+    <div class="col" id='header'></div>
+    <div id="contractor_form">
+      <h1>Dinning Room</h1>
+      <form name="profile" method='get'>
+        <div class="col col-xs-12 text-left">
+          <div id="selectedRooms">
+            <table class='table table-hover'>
+              <thead>
+                <tr>
+                  <td class="page-header">Component</td>
+                  <td class="page-header">Fault</td>
+                  <td class="page-header">Image</td>
+                </tr>
+              </thead>
+              <tbody id='resultsBody'>
+                <tr>
+                  <td>
+                    <div>Floor 1</div>
+                  </td>
+                  <td>
+                    <input type="text" name="faultDescription" class="form-control" value="Description" onfocus="if(this.value=='Floor 1'){this.value='';}" onblur="if(this.value==''){this.value='Description';}" aria-describedby="basic-addon2">
+                    <input type="text" name="faultDescription" class="form-control" value="Description" onfocus="if(this.value=='Floor 1'){this.value='';}" onblur="if(this.value==''){this.value='Description';}" aria-describedby="basic-addon2">
+                    <input type="text" name="faultDescription" class="form-control" value="Description" onfocus="if(this.value=='Floor 1'){this.value='';}" onblur="if(this.value==''){this.value='Description';}" aria-describedby="basic-addon2">
+                  </td>
+                  <td>
+                    <input type="file" name="faultImg" class="" accept="image/*" capture="camera">
+                    <input type="file" name="faultImg" class="" accept="image/*" capture="camera">
+                    <input type="file" name="faultImg" class="" accept="image/*" capture="camera">
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div>Window 1</div>
+                  </td>
+                  <td>
+                    <input type="text" name="faultDescription" class="form-control" value="Description" onfocus="if(this.value=='Floor 1'){this.value='';}" onblur="if(this.value==''){this.value='Description';}" aria-describedby="basic-addon2">
+                  </td>
+                  <td>
+                    <input type="file" name="faultImg" class="" accept="image/*" capture="camera">
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div>Trim 1</div>
+                  </td>
+                  <td>
+                    <input type="text" name="faultDescription" class="form-control" value="Description" onfocus="if(this.value=='Floor 1'){this.value='';}" onblur="if(this.value==''){this.value='Description';}" aria-describedby="basic-addon2">
+                    <input type="text" name="faultDescription" class="form-control" value="Description" onfocus="if(this.value=='Floor 1'){this.value='';}" onblur="if(this.value==''){this.value='Description';}" aria-describedby="basic-addon2">
+                  </td>
+                  <td>
+                    <input type="file" name="faultImg" class="" accept="image/*" capture="camera">
+                    <input type="file" name="faultImg" class="" accept="image/*" capture="camera">
+                  </td>
+                </tr>
+                <tr>
+                  <tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td class="text-center" colspan='3'>
+                    <a href="inspector_rooms.html" id='submitBtn' type='submit' name='submit' class='btn btn-primary'>Back to Rooms</a>
+                    <button id='resetBtn' type='reset' name='reset' class='btn btn-primary'>Clear All</button>
+                    <a href="cgi-results.py" class='btn btn-default'>View Report</a>
+                  </td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+      </form>
+    </div>
+
+  </div>
+
+  <script src="scripts/validate.js"></script>
