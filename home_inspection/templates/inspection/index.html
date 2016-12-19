@@ -8,14 +8,14 @@
     <div class="col col-sm-12 col-md-6">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <button class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i> Add New (toggle btn)</button>
+                <input id="toggle-add-new" type="checkbox"  checked>
             </div>
-            <div class="panel-body">
-                <form action="{% url 'inspection:post_property' %}" method="post">
+            <div class="panel-body" id="prop-form-container">
+                <form id='newPropForm' action="{% url 'inspection:index' %}" method="post">
                     {% csrf_token %}
                     {{ ownerForm.as_p }}
                     {{ propForm.as_p }}
-                    <button class="btn btn-primary" type="submit">Save &amp; continue</button>
+                    <button class="btn btn-primary" type="button" id="newPropBtn">Save &amp; continue</button>
                 </form>
             </div>
         </div>
@@ -24,33 +24,14 @@
     <!-- CREATED PROPERTY (only available when logged in) -->
     
     <div class="col col-sm-12 col-md-6">
-        {% if allProperties %}
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3>#LoggedInspectorName</h3>
+                <h3>#Logged_In_Inspector</h3>
             </div>
-            <ul class="list-group">
-                {% for property in allProperties %}
-                <li class="list-group-item">
-                    <div class="row">
-                        <div class="col col-xs-9">
-                            <a href="{% url 'inspection:room' property.id %}">{{property.address}} - {{property.ownerId}}</a>
-                        </div>
-                        <div class="col col-xs-3">
-                            <a href="{% url 'inspection:deleteProp' property.id %}" class="btn btn-danger">
-                                <i class="fa fa-trash" aria-hidden="true"></i>
-                            </a>
-                            <a href="#" class="btn btn-primary" style="width: 37px;">
-                                <i class="fa fa-eye" aria-hidden="true"></i>
-                            </a>
-                        </div>
-                    </div>
-                </li>
-                {% endfor %}
+            <ul class="list-group" id="property-container">
+                {% include "inspection/partial/index.partial.html" %}
             </ul>
-            {% else %}
-            <h3>You currently don't have any property</h3>
-            {% endif %}
+            
         </div>
     </div>
 </div>

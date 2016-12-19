@@ -1,0 +1,18 @@
+ver 1.1.0
+
+index.html
+- toggle button in index
+- AJAX refresh after create new property
+- desc ordering created properties
+- remove post_property views
+- remove property with AJAX load
+
+room.html
+- add room function
+- AJAX refresh after add new room
+- xeditable update name for created rooms
+
+base.html
+- xeditable
+- bootstrap toggle
+

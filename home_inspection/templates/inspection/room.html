@@ -8,51 +8,28 @@
     <h2>Property #{{property.id}}: {{property}}</h2>
 
     <!--if have images, will take a lot of spaces in mobile-->
-    <div class="row room-type-item">
+    <form action="{{request.path}}" method="POST" id="hidden-room-form">
+        {% csrf_token %}
+        <input type="text" name="propertyId" value="{{property.id}}" class="hidden">
         {% for type in roomType %}
-            <div class="col col-xs-12 col-md-4">
-                <button class="btn btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i> {{type.roomTypeName}}</button>
-            </div>
-        {% if forloop.counter|divisibleby:'3' %}
-            </div><div class="row room-type-item">
-        {% endif %}
+        <div class="col col-xs-12 col-md-4">
+            <input type="radio" name="roomType" value="{{type.id}}" class="hidden">
+            <input type="radio" name="roomName" value="{{type.roomTypeName}}" class="hidden">
+            <button class="btn btn-primary btn-block room-type-btn">
+                <i class="fa fa-plus" aria-hidden="true"></i> {{type.roomTypeName}}
+            </button>
+        </div>
         {% endfor %}
-    </div>
+    </form>
+    
 </div>
 
 <div class="row">
     <div class="col col-xs-12 col-md-6">
-        {% if property.room_set.all %}
-        <ul class="list-group">
-            {% for room in property.room_set.all %}
-            <li class="list-group-item">
-                <div class="row">
-                    <div class="col col-xs-9">
-                        <a href='{{request.path}}{{room.id}}'>{{room.roomName}}</a>
-                    </div>
-                    <div class="col col-xs-3">
-                        <a href="{{request.path}}{{room.id}}" class="btn btn-primary" style="width: 37px;">
-                            <i class="fa fa-eye" aria-hidden="true"></i>
-                        </a>
-                        <a href="{% url 'inspection:deleteProp' property.id %}" class="btn btn-danger">
-                            <i class="fa fa-trash" aria-hidden="true"></i>
-                        </a>
-                        <a href="#" class="btn btn-warning" style="width: 37px;">
-                            <i class="fa fa-clone" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                </div>
-                
-            </li>
-            {% endfor %}
+        <ul class="list-group" id="room-container">
+            {% include "inspection/partial/room.partial.html" %}
         </ul>
-        {% else %}
-        <h3>Currently, you don't have any room</h3>
-        {% endif %}
     </div>
 </div>
     
-
-
-
 {% endblock %}
