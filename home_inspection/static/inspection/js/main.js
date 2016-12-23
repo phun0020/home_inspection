@@ -42,6 +42,12 @@ $('#property-container').on('click', 'button.delProp', function(){
     index.ajaxDelete($(this).attr('data-id'));
 });
 
+// update selected property button
+$('#property-container').on('click', 'button.updateProp', function(){
+    $(this).parent().siblings().toggleClass('hidden');
+});
+index.xeditableProperty();
+
 //------------------------room.js------------------------
 
 $('.room-type-btn').on('click', function(e){

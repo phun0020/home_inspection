@@ -1,12 +1,19 @@
+from django.core import serializers
 from django.http import HttpResponseRedirect, JsonResponse, HttpResponse
 from django.shortcuts import render, get_list_or_404, get_object_or_404
 from .models import Inspector, Owner, Property, Room, RoomType, BuildingType, PropertyType
 from .forms import PropertyForm, OwnerForm
+from .service import isXeditableCallRequest, updateWithXeditable
+import json
 
 ##### PROPERTY region ######
 def index(request):
     # get all needed data: properties, buildingType, propType
     allProperties = get_list_or_404(Property.objects.order_by('-id'), isDelete = False)
+
+    # list of propType and BuildType for Xeditable's source
+    propTypeList = [ob.as_json() for ob in PropertyType.objects.all()]
+    buildTypeList = [ob.as_json() for ob in BuildingType.objects.all()]
 
     # form
     propForm = PropertyForm(prefix="propFrom")
@@ -39,6 +46,21 @@ def index(request):
             # or
             # redirect to the room page of created property
             # return HttpResponseRedirect('/inspection/'+ str(prop.id))
+        
+        #-----change property attributes-----
+        if isXeditableCallRequest(request):
+            reqClass = request.POST.get('class')
+            # decision denpend on params class : Owner or Property
+            # really need to refactor this xeditable after come back
+            if(reqClass == 'Owner'): updateWithXeditable(request, Owner)
+            if(reqClass == 'Property'):
+                req = request.POST 
+                if req.get('name') == 'propertyTypeId':
+                    updateWithXeditable(request, Property, PropertyType, mode='select')
+                elif req.get('name') == 'buildingTypeId':
+                    updateWithXeditable(request, Property, BuildingType, mode='select')
+                else:
+                    updateWithXeditable(request, Property)
 
         else:
             return HttpResponse('<h1>Something is not right...</h1>')
@@ -48,6 +70,8 @@ def index(request):
         'allProperties' : allProperties,
         'propForm' : propForm,
         'ownerForm' : ownerForm,
+        'propTypeList' : propTypeList,
+        'buildTypeList' : buildTypeList
     })
 
 def deleteProp(request, property_id):
@@ -90,11 +114,8 @@ def room(request, property_id):
             })
 
         #-----change room name-----
-        if req.get('name') and req.get('value') and req.get('pk'):
-            room = get_object_or_404(Room, id=req.get('pk'))
-            setattr(room, req.get('name'), req.get('value'))
-
-            room.save()
+        if isXeditableCallRequest(request):
+            updateWithXeditable(request, Room)
 
             # should return json or status rather than this... message
             return HttpResponse('<h3>{0}</h3>'.format('call ajax successfully'))
@@ -125,3 +146,5 @@ def component(request, property_id, room_id):
     }) 
 
 ##### end of COMPONENT region ######
+
+    

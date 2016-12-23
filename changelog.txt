@@ -16,3 +16,7 @@ base.html
 - xeditable
 - bootstrap toggle
 
+var 1.1.1
+
+index.html
+- add update function for created property using xeditable

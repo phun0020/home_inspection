@@ -32,14 +32,20 @@ class PropertyType(models.Model):
     typeName = models.CharField(max_length=255)
 
     def __str__(self):
-        return self.typeName  
+        return self.typeName
+
+    def as_json(self):
+        return {'value':self.id,'text':self.typeName}
 
 class BuildingType(models.Model):
     buildingCode = models.CharField(max_length=20)
     buildingName = models.CharField(max_length=255)
 
     def __str__(self):
-        return self.buildingName  
+        return self.buildingName
+
+    def as_json(self):
+        return {'value':self.id,'text':self.buildingName}
 
 class Property(models.Model):
     ownerId = models.ForeignKey(Owner, on_delete=models.CASCADE, blank = True, null = True)
