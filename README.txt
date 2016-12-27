@@ -1,8 +1,8 @@
 ╔═════════════════════════════════════════════════════════════════════╗
-║                   IRON LANTERN INSPECTIONS INC.	                    ║ 
-║	                                                                    ║
-║	                   Walkthrough Assistance App                       ║
-║	                                                                    ║
+║                   IRON LANTERN INSPECTIONS INC.	                 ║ 
+║	                                                                 ║
+║	                Walkthrough Assistance App                       ║
+║	                                                                 ║
 ║                 Jordan, Eric, Tam, Hakan, Windjy                    ║
 ╚═════════════════════════════════════════════════════════════════════╝
 
