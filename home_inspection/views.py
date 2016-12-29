@@ -6,8 +6,62 @@ from .forms import PropertyForm, OwnerForm
 from .service import isXeditableCallRequest, updateWithXeditable
 import json
 
-##### PROPERTY region ######
+##### DASHBOARD region ######
 def index(request):
+    return render(request, 'index.html')
+##### end of DASHBOARD region ######
+
+##### ABOUT region ######
+def about(request):
+    return render(request, 'inspection/about.html')
+##### end of ABOUT region ######
+##### AGENT ROOM SELECT region ######
+def agent_rooms(request):
+    return render(request, 'inspection/agent_rooms.html')
+##### end of AGENT ROOM region ######
+##### AGENT START region ######
+def agents(request):
+    return render(request, 'inspection/agents.html')
+##### end of AGENT START region ######
+##### BUYERS ROOM SELECT region ######
+def buyers(request):
+    return render(request, 'inspection/buyers.html')
+##### end of BUYERS ROOM SELECT region ######
+##### INSPECTOR ROOM SELECT region ######
+def inspect_rooms(request):
+    return render(request, 'inspection/inspect_rooms.html')
+##### end of INSPECTOR ROOM SELECT  region ######
+##### INSPECTOR START region ######
+def inspector(request):
+    return render(request, 'inspection/inspector.html')
+##### end of INSPECTOR START region ######
+##### LOGIN region ######
+def login(request):
+    return render(request, 'inspection/login.html')
+##### end of LOGIN region ######
+##### REGISTER region ######
+def register(request):
+    return render(request, 'inspection/register.html')
+##### end of REGISTER region ######
+##### CONTACT region ######
+def contact(request):
+    return render(request, 'inspection/contact.html')
+##### end of CONTACT region ######
+##### REPORTS region ######
+def reports(request):
+    return render(request, 'inspection/user_reports.html')
+##### end of REPORTS region ######
+##### REPORTS region ######
+def terms(request):
+    return render(request, 'inspection/terms.html')
+##### end of REPORTS region ######
+##### REPORTS region ######
+def articles(request):
+    return render(request, 'inspection/articles.html')
+##### end of REPORTS region ######
+
+##### PROPERTY region ######
+def dashboard(request):
     # get all needed data: properties, buildingType, propType
     allProperties = get_list_or_404(Property.objects.order_by('-id'), isDelete = False)
 
@@ -39,7 +93,7 @@ def index(request):
             # update the allProperties, can't use the one above
             allProperties = get_list_or_404(Property.objects.order_by('-id'), isDelete = False)
 
-            return render(request, 'inspection/partial/index.partial.html', {
+            return render(request, 'inspection/partial/dashboard.partial.html', {
                 'allProperties' : allProperties
             })
 
@@ -66,7 +120,7 @@ def index(request):
             return HttpResponse('<h1>Something is not right...</h1>')
     
     # render normal page if doesn't receive any request
-    return render(request, 'inspection/index.html', {
+    return render(request, 'inspection/dashboard.html', {
         'allProperties' : allProperties,
         'propForm' : propForm,
         'ownerForm' : ownerForm,
@@ -83,7 +137,7 @@ def deleteProp(request, property_id):
 
     allProperties = get_list_or_404(Property.objects.order_by('-id'), isDelete = False)
 
-    return render(request, 'inspection/partial/index.partial.html', {
+    return render(request, 'inspection/partial/dashboard.partial.html', {
         'allProperties' : allProperties
     })
 
