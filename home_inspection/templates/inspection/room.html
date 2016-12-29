@@ -4,7 +4,7 @@
 {% block content %}
 
 {% comment %}only show this one if logged in{% endcomment %}
-<div class="row">
+<div class="col-xs-12 col-sm-10 col-sm-offset-1">
     <h2>Property #{{property.id}}: {{property}}</h2>
 
     <!--if have images, will take a lot of spaces in mobile-->
@@ -15,7 +15,7 @@
         <div class="col col-xs-12 col-md-4">
             <input type="radio" name="roomType" value="{{type.id}}" class="hidden">
             <input type="radio" name="roomName" value="{{type.roomTypeName}}" class="hidden">
-            <button class="btn btn-primary btn-block room-type-btn">
+            <button class="btn btn-red btn-block room-type-btn">
                 <i class="fa fa-plus" aria-hidden="true"></i> {{type.roomTypeName}}
             </button>
         </div>
@@ -24,12 +24,11 @@
     
 </div>
 
-<div class="row">
-    <div class="col col-xs-12 col-md-6">
-        <ul class="list-group" id="room-container">
-            {% include "inspection/partial/room.partial.html" %}
-        </ul>
-    </div>
+
+<div class="col col-xs-12 col-md-4 col-md-offset-4">
+    <ul class="list-group" id="room-container">
+        {% include "inspection/partial/room.partial.html" %}
+    </ul>
 </div>
     
 {% endblock %}

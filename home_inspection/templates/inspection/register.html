@@ -1,0 +1,94 @@
+{% extends 'inspection/base.html' %}
+{% block title %}Index{% endblock %}
+
+
+{% block content %}
+ <div class="content">
+  <div class="col col-xs-12 col-sm-10 col-sm-offset-1 text-center">
+    <div id="contractor_form">
+      <h1>Register</h1>
+      <form id="inputTable" name="profile" method='get' class="col-xs-4 col-xs-offset-4">
+        <h3 class="text-left">User Information</h3>
+        <label for='fname' class="label pull-left" id='fnameLabel'>First Name</label>
+        <input type="text" id="fname" name="fname" class="form-control box-shadow" placeholder="Please enter your first name">
+        <label for='lname' class="label pull-left" id='lnameLabel'>Last Name</label>
+        <input type="text" id="lname" name="lname" class="form-control box-shadow" placeholder="Please enter your last name">
+        <label for='email' class="label pull-left" id='emailLabel'>Email Address</label>
+        <input type="text" id="email" name="email" class="form-control box-shadow" placeholder="email@domain.com">
+        <label for='domain' class="label pull-left" id='domainLabel'>Domain</label>
+        <input type="text" id="domain" name="domain" class="form-control box-shadow" placeholder="www.domain.com">
+        <br/>
+        <br/>
+        <button id='submitBtn' type='submit' name='submit' class='btn btn-red'>Submit</button>
+        <button id='resetBtn' type='reset' name='reset' class='btn btn-red'>Clear</button>
+        </form>
+        
+      <form id="inputTable" name="profile" method='get' class="col-xs-4 col-xs-offset-4">
+        <h3 class="text-left">Payment Information</h3>
+        <label for='paypal' class="label pull-left" id='paypalLabel'>Please Choose a payment method</label>
+        <input type='radio' name='paymentType' value='paypal' id="paypal" />
+        <label for="paypal" id="paypalLabel"></label>
+        <input type='radio' name='paymentType' value='debit' id="debit" />
+        <label for="debit" id="debitLabel"></label>
+        <input type='radio' name='paymentType' value='visa' id="visa" />
+        <label for="visa" id="visaLabel"></label>
+        <input type='radio' name='paymentType' value='mastercard' id="mastercard"/>
+        <label for="mastercard" id="mastercardLabel"></label>
+        <input type='radio' name='paymentType' value='discover' id="discover" />
+        <label for="discover" id="discoverLabel"></label>
+        <br/><br/>
+        <h5 class="text-left col-xs-12">Credit Card</h5>
+          
+          <div class="col-xs-12 no-padding">
+            <label for='ccName' pattern="[0-9]{13,16}" class="label pull-left" id='ccNameLabel'>Name on Card</label>
+            <input type="text" id="ccName" name="ccName" class="form-control box-shadow" placeholder="Your Name">
+            <label for='ccNo' class="label pull-left" id='ccNoLabel'>Card Number</label>
+            <input type="text" id="ccNo" name="ccNo" class="form-control box-shadow" placeholder="0000 0000 0000 0000">
+            
+            <div class="col-xs-8 no-padding">
+            <div class="col-xs-12 no-padding">
+                        <label for='expireMM' class="label pull-left" id='expireMMLabel'>Expiration Date</label>
+                        </div>
+                         <div class="col-xs-6 no-padding">
+              <select name='expireMM' id='expireMM' class="form-control box-shadow pull-left">
+                <option value=''>Month</option>
+                <option value='01'>January</option>
+                <option value='02'>February</option>
+                <option value='03'>March</option>
+                <option value='04'>April</option>
+                <option value='05'>May</option>
+                <option value='06'>June</option>
+                <option value='07'>July</option>
+                <option value='08'>August</option>
+                <option value='09'>September</option>
+                <option value='10'>October</option>
+                <option value='11'>November</option>
+                <option value='12'>December</option>
+              </select>
+              </div>
+            <div class="col-xs-6">
+              <select name='expireYY' id='expireYY' class="form-control box-shadow pull-left">
+                <option value=''>Year</option>
+                <option value='17'>2017</option>
+                <option value='18'>2018</option>
+                <option value='19'>2019</option>
+                <option value='20'>2020</option>
+              </select>
+            </div>
+              </div>
+            <input class="inputCard" type="hidden" name="expiry" id="expiry" maxlength="4" />
+            <div class="col-xs-4 pull-right">
+            <label for='domain' class="label pull-left" id='domainLabel'>Security Code</label>
+            <input type="text" id="domain" name="domain" class="form-control box-shadow" placeholder="123">
+            </div>
+          </div>
+          <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        <button id='submitBtn' type='submit' name='submit' class='btn btn-red'>Submit</button>
+        <button id='resetBtn' type='reset' name='reset' class='btn btn-red'>Clear</button>
+      </form>
+    </div>
+  </div>
+  <script src="scripts/validate.js"></script>
+</div>
+{% endblock %}
+

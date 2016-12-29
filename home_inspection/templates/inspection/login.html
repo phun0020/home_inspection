@@ -1,0 +1,23 @@
+{% extends 'inspection/base.html' %}
+{% block title %}Index{% endblock %}
+
+
+{% block content %}
+<div class="content">
+  <div class="col col-xs-12 col-sm-10 col-sm-offset-1 text-center">
+    <div id="contractor_form">
+      <h1>Login</h1>
+      <form id="inputTable" name="profile" method='get' class="col-xs-4 col-xs-offset-4">
+        <label for='usrname' class="label pull-left" id='usrnameLabel'>User Name</label>
+        <input type="text" id="usrname" name="usrname" class="form-control box-shadow" placeholder="Please enter your user name">
+        <label for='password' class="label pull-left" id='passwordLabel'>Password</label>
+        <input type="password" id="password" name="password" class="form-control box-shadow" placeholder="••••••••••">
+        <br/>
+        <button id='submitBtn' type='submit' name='submit' class='btn btn-red'>Submit</button>
+        <a href="/register" name='register' class='btn btn-red'>Register</a>
+      </form>
+    </div>
+  </div>
+  <script src="scripts/validate.js"></script>
+</div>
+{% endblock %}

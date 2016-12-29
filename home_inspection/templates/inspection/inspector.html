@@ -1,0 +1,30 @@
+{% extends 'inspection/base.html' %}
+{% block title %}Index{% endblock %}
+
+
+{% block content %}
+ <div class="content">
+  <div class="col col-xs-12 col-sm-10 col-sm-offset-1 text-center">
+      <div id="contractor_form">
+      <h1>Inspector Home Report</h1>
+      <form id="inputTable" name="profile" method='get' class="col-xs-8 col-xs-offset-2">
+        <label for='porpertyType' class="label pull-left" id='porpertyTypeLabel'>Project Number</label>
+        <input type="text" id="propertyType" name="porpertyType" class="form-control box-shadow" placeholder="date-user">
+        <label for='client' class="label pull-left" id='clientLabel'>Client</label>
+        <input type="text" id="client" name="client" class="form-control box-shadow" placeholder="Enter client name">
+        <label for='address' class="label pull-left" id='addressLabel'>Address</label>
+        <input type="text" id="address" name="address" class="form-control box-shadow" placeholder="Enter building address">
+        <label for='contractor' class="label pull-left" id='contractorLabel'>Inspector</label>
+        <input type="text" id="contractor" name="contractor" class="form-control box-shadow" placeholder="Enter your name">
+        <br>
+        <a href="inspector_rooms.html" id='submitBtn' type='submit' name='submit' class='btn btn-red'>Select Rooms</a>
+        <button id='resetBtn' type='reset' name='reset' class='btn btn-red'>Clear Form</button>
+        <a href="cgi-results.py" class='btn btn-default'>View Report</a>
+      </form>
+    </div>
+  </div>
+  <script src="scripts/validate.js"></script>
+</div>
+  
+{% endblock %}
+
