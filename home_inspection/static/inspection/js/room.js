@@ -1,12 +1,13 @@
 var room = (function () {
+    // call ajax when add new property
     var xeditableRoomName = function(){
-        $('.room-xeditable-text').editable({
+        $('.xeditable-text').editable({
             type : "text",
             highlight : '#8e44ad',
             mode : 'inline'
         });
     }
-    // call ajax when add new property
+
 
     var ajaxAddRoom = function () {
         $.ajax({

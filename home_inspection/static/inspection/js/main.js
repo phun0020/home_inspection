@@ -14,14 +14,14 @@ $.ajaxSetup({
     }
 });
 
-//------------------------index.js------------------------
+//------------------------dashboard.js------------------------
 
 // toggle add-form-property button
 // hide/show the form
 $('#toggle-add-new').bootstrapToggle({
       on: 'Show',
       off: 'Hide',
-      onstyle: 'primary',
+      onstyle: 'red',
       offstyle: 'default',
       style: 'ios'
 });
@@ -37,16 +37,10 @@ $('#newPropBtn').on('click', function(){
     index.ajaxAdd();
 })
 
-// del selected property button
+// del selected property button                                     //NOT WORKING
 $('#property-container').on('click', 'button.delProp', function(){
     index.ajaxDelete($(this).attr('data-id'));
 });
-
-// update selected property button
-$('#property-container').on('click', 'button.updateProp', function(){
-    $(this).parent().siblings().toggleClass('hidden');
-});
-index.xeditableProperty();
 
 //------------------------room.js------------------------
 
