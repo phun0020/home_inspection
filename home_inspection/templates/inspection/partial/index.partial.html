@@ -3,78 +3,16 @@
     {% for property in allProperties %}
     <li class="list-group-item">
         <div class="row">
-            <div class="col col-xs-9 non-updatable-prop">
-                <a href="{% url 'inspection:room' property.id %}">
-                    <span class="propAddress">{{property.address}}</span> - <span class="propOwnerFname">{{property.ownerId.firstname}}</span> <span class="propOwnerLname">{{property.ownerId.lastname}}</span>
-                </a>
+            <div class="col col-xs-8">
+                <a href="{% url 'inspection:room' property.id %}">{{property.address}} - {{property.ownerId}}</a>
             </div>
-            <div class="col col-xs-9 index-info-container hidden updatable-prop" data-url="{{request.path}}">
-                {% comment %}Owner section{% endcomment %}
-                <div class="index-update-container"
-                    data-pk="{{property.ownerId.pk}}">
-                Firstname: <a href="#" class="index-xeditable"
-                                data-name="firstname"
-                                data-title="owner firstname"
-                                data-class="Owner">{{property.ownerId.firstname}}</a><br>
-
-                Lastname: <a href="#" class="index-xeditable"
-                                data-name="lastname"
-                                data-title="owner lastname"
-                                data-class="Owner">{{property.ownerId.lastname}}</a><br>
-
-                Email: <a href="#" class="index-xeditable"
-                                data-name="email"
-                                data-title="owner email"
-                                data-class="Owner">{{property.ownerId.email}}</a><br>
-
-                Phone: <a href="#" class="index-xeditable"
-                                data-name="phone"
-                                data-title="owner phone number"
-                                data-class="Owner">{{property.ownerId.phone}}</a><br>
-                </div>
-                
-
-                {% comment %}Property section{% endcomment %}
-                <div class="index-update-container"
-                    data-pk="{{property.id}}">
-                Address: <a href="#" class="index-xeditable"
-                                data-name="address"
-                                data-title="property address"
-                                data-class="Property">{{property.address}}</a><br>
-
-                Property Type: <a href="#" class="index-xeditable-select propertyType"
-                                data-name="propertyTypeId"
-                                data-obj="{{propTypeList}}"
-                                data-value="{{property.propertyTypeId.id}}"
-                                data-class="Property"
-                                >{{property.propertyTypeId.typeName}}</a><br>
-
-                Property Size: <a href="#" class="index-xeditable"
-                                data-name="propertySize"
-                                data-title="property size"
-                                data-class="Property">{{property.propertySize}}</a>
-                                <a data-name="unit"
-                                data-title="property unit"
-                                data-class="Property"> unit</a><br>
-
-                Building Type: <a href="#" class="index-xeditable-select buildingType"
-                                data-name="buildingTypeId"
-                                data-obj="{{buildTypeList}}"
-                                data-value="{{property.buildingTypeId.id}}"
-                                data-class="Property"
-                                >{{property.buildingTypeId.buildingName}}</a><br>
-                </div>
-            </div>
-            <div class="col col-xs-3">
-                <a href="{% url 'inspection:room' property.id %}" class="btn btn-primary" style="width: 37px;">
-                    <i class="fa fa-eye" aria-hidden="true" title="inspect"></i>
+            <div class="col col-xs-4">
+                <button class="btn btn-red delProp" data-id="{{property.id}}">
+                    <span class="glyphicon glyphicon-trash"></span>
+                </button>
+                <a href="{% url 'inspection:room' property.id %}" class="btn btn-default">
+                    <span class="glyphicon glyphicon-pencil"></span>
                 </a>
-                <button class="btn btn-warning updateProp" style="width: 37px;">
-                    <i class="fa fa-cog" aria-hidden="true" title="update"></i>
-                </button>
-                <button class="btn btn-danger delProp" data-id="{{property.id}}">
-                    <i class="fa fa-trash" aria-hidden="true" title="delete"></i>
-                </button>
             </div>
         </div>
     </li>
