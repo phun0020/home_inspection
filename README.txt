@@ -22,20 +22,18 @@ RUN SERVER
 5. example http://127.0.0.1:8000/inspection/, http://127.0.0.1:8000/admin/ 
 
 FOLDER TREE
-+.vscode      // FOLDER DESCRIPTION - ? //                        // @TAM: WHATS THE JSON FOR?//
++.vscode      // FOLDER DESCRIPTION - ? //                      
 +IAWD      // FOLDER DESCRIPTION - ? //                                
 +home_inspection : app for inspection   
 	+pycache : auto generate when run   
-	+migrations : auto generate                               // @TAM: AUTO GENERATE WHAT? FIELD INFORMAITON? //
-	+static : contains js, css, images for app                // @TAM: WHY HAVE SUBFOLDER 'INSPECTION' WHEN STATIC IS SUB OF HOME_INSPECTION? INSPECTION = VIEW?//
-	+templates                                                // @TAM: WHY HAVE SUBFOLDER 'INSPECTION' WHEN TEMPLATES IS SUB OF HOME_INSPECTION? INSPECTION = VIEW?//
-	
-	   -base.html : layout for everypage such as header, footer // ONGOING INTEGRATION - ERIC //
-	   
+	+migrations : auto generate      // @TAM: AUTO GENERATE WHAT? FIELD INFORMAITON? //
+	+static : contains js, css, images for app 
+	+templates 
+	   -base.html : layout for everypage such as header, footer 
 	   -component.html : content for component page       
 	   -index.html : content for homepage       
 	   -room.html : content for room   
-	+uploads : images that user upload should goes here      // TO DO - TAM //   
+	+uploads : images that user upload should goes here      // TO DO //   
 	-__init.py : load needed packages, empty right now    
 	
  (?)-admin.py : if create a new model, goes here and add name of that model to array so you can see it in admin page    
