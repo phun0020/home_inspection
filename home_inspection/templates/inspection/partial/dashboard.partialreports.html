@@ -1,0 +1,23 @@
+{% if allProperties %}
+
+    {% for property in allProperties %}
+    <li class="list-group-item">
+        <div class="row">
+            <div class="col col-xs-8">
+                <a href="{% url 'inspection:room' property.id %}">{{property.address}} - {{property.ownerId}}</a>
+            </div>
+            <div class="col col-xs-4">
+                <button class="btn btn-red delProp" data-id="{{property.id}}">
+                    <span class="glyphicon glyphicon-trash"></span>
+                </button>
+                <a href="{% url 'inspection:room' property.id %}" class="btn btn-default">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                </a>
+            </div>
+        </div>
+    </li>
+    {% endfor %}
+
+{% else %}
+<h3>You haven't saved a report yet</h3>
+{% endif %}

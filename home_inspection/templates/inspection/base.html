@@ -28,13 +28,12 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous" defer="defer"></script>
         <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js" defer="defer"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js" defer="defer"></script>
-        <!-- ?????????? form toggle ?????????? -->
         <script src='{% static "inspection/js/crsftoken.js" %}' type="text/javascript" defer="defer"></script>  
         <!-- js by page -->
         <script src='{% static "inspection/js/index.js" %}' type="text/javascript" defer="defer"></script>
         <script src='{% static "inspection/js/room.js" %}' type="text/javascript" defer="defer"></script>
         <script src='{% static "inspection/js/main.js" %}' type="text/javascript" defer="defer"></script>
-        <!-- stylin js -->
+        <!-- styling js -->
         <script src='{% static "inspection/js/page_control.js" %}' type="text/javascript"></script>  
 </head>
 <body>
@@ -84,16 +83,12 @@
                    
                    <li class="popup-link" role="presentation"><a href="/about"><div class="h4 inline">About</div></a></li>
                    <li class="divider-vertical"></li>
-                   <li class="hidden-xs popup-link dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><div class="h4 inline">Inspections</div><span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                          <li><a href="/dashboard"><h5>Home Inspectors</h5></a></li>
-                          <li><a href="/agents"><h5>Real Estate Agents</h5></a></li>
-                          <li><a href="/buyers"><h5>Home Buyers</h5></a></li>
-                        </ul>
-                      </li>
+                   <li class="popup-link" role="presentation"><a href="/dashboard"><div class="h4 inline">User Dashboard</div></a></li>
+                   
                    <li class="hidden-xs divider-vertical"></li>
-                   <li class="popup-link" role="presentation"><a href="/login"><div class="h4 inline">Login</div></a></li> <!-- ### should go to login.html if not logged in ### -->
+                   <li class="popup-link" role="presentation"><a href="/login"><div class="h4 inline">Login</div></a></li> 
+                   <!-- ### should go to login.html if not logged in ### -->
+                   <!-- ### should switch to "logout" if logged in ### -->
                </ul>
             </div>
         </div>

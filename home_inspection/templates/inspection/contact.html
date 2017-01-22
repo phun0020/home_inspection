@@ -4,32 +4,33 @@
 
 {% block content %}
 <div class="content">
-    <div class="col col-xs-12 col-sm-4 col-sm-offset-4">
+    <div class="col-xs-12 text-center"><h2>Contact Form</h2>
+    </div>
+      <div class="col-xs-hidden col-sm-4 col-sm-offset-4"><hr/></div>
+       <div class="col col-xs-12 col-sm-4 col-sm-offset-4">
         
-    
-        <h2>Contact Form</h2>
       <form name="contact" method='post' action='cgi-form.py'>
 
-        <label for='userName' class="label" id='fnameLabel'>Your Name</label>
-        <input type="text" id="userName" name="userName" class="form-control" placeholder="First Lastname">
+        <label for='userName' class="label pull-left" id='fnameLabel'>Your Name</label>
+        <input type="text" id="userName" name="userName" class="form-control box-shadow" placeholder="First Lastname">
 
-        <label for='lname' class="label" id='emailLabel'>Email Address</label>
-        <input type="email" id="email" name="email" class="form-control" placeholder="email@domain.com">
+        <label for='lname' class="label pull-left" id='emailLabel'>Email Address</label>
+        <input type="email" id="email" name="email" class="form-control box-shadow" placeholder="email@domain.com">
 
-        <label for='userPhone' class="label" id='userPhoneLabel'>Phone Number</label>
-        <input type="text" id="userPhone" name="userPhone" class="form-control" placeholder="(613)555-1234">
+        <label for='userPhone' class="label pull-left" id='userPhoneLabel'>Phone Number</label>
+        <input type="text" id="userPhone" name="userPhone" class="form-control box-shadow" placeholder="(613)555-1234">
         
-        <label for='userAddress' class="label" id='userAddressLabel'>Address</label>
-        <input type="text" id="userAddress" name="userAddress" class="form-control" placeholder="123 Main St. Ottawa, On">
+        <label for='userAddress' class="label pull-left" id='userAddressLabel'>Address</label>
+        <input type="text" id="userAddress" name="userAddress" class="form-control box-shadow" placeholder="123 Main St. Ottawa, On">
         
-        <label for='userWebsite' class="label" id='userWebsiteLabel'>Domain or Website</label>
-        <input type="text" id="userWebsite" name="userWebsite" class="form-control" placeholder="mysite.com">
+        <label for='userWebsite' class="label pull-left" id='userWebsiteLabel'>Domain or Website</label>
+        <input type="text" id="userWebsite" name="userWebsite" class="form-control box-shadow" placeholder="mysite.com">
         
-        <label for='userProject' class="label" id='userProjectLabel'>Project Description</label>
-          <textarea id="userProject" name="userProject" class="form-control" form="contact" rows="2" placeholder="Please describe your project"></textarea>
+        <label for='userProject' class="label pull-left" id='userProjectLabel'>Project Description</label>
+          <textarea id="userProject" name="userProject" class="form-control box-shadow" form="contact" rows="2" placeholder="Please describe your project"></textarea>
           
-        <label for='userEmailBody' class="label" id='userEmailBodyLabel'>Comment</label>
-          <textarea id="userEmailBody" name="userEmailBody" class="form-control" form="contact" rows="6" placeholder="Please let us know how we can help you"></textarea>
+        <label for='userEmailBody' class="label pull-left" id='userEmailBodyLabel'>Comment</label>
+          <textarea id="userEmailBody" name="userEmailBody" class="form-control box-shadow" form="contact" rows="6" placeholder="Please let us know how we can help you"></textarea>
         
         <br/>
 <div class="col-xs-12">
@@ -41,7 +42,6 @@
         <br/>
         <br/>
       </form>
-        
-    </div>
+        </div>
 </div>
 {% endblock %}

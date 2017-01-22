@@ -1,0 +1,15 @@
+{% if users %}
+
+    {% for field in users %}
+        <!-- todo: ref forms -->
+        <h3>#Logged_In_Inspector</h3>
+        <h4>#Logged_In_Company</h4>
+        <h4>#Logged_In_Username</h4>
+        <h4>#Logged_In_Password</h4>
+        <h4>#Logged_In_Email</h4>
+        <h4>#Logged_In_Settings</h4>
+    {% endfor %}
+
+{% else %}
+<h3>Please log in to continue</h3>
+{% endif %}

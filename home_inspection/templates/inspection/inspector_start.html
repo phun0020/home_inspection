@@ -1,0 +1,119 @@
+
+{% extends 'inspection/base.html' %} {% block title %}Dashboard{% endblock %} {% block content %}
+<div class="content"> 
+  <div class="col col-xs-12 col-sm-10 col-sm-offset-1 text-center"> 
+        <div class='col col-xs-12 col-md-6 col-md-offset-3'>
+      <h2>New Home Inspection Report</h2>  
+<!---------------------------------------------------------- -->
+      <div class="col-xs-12 text-left">
+        <div class="panel-body" id="prop-form-container">
+          <form id='newPropForm' action="{% url 'inspection:dashboard' %}" method="post">
+               <h3>Inspector Details</h3>
+               <label for='id_ownerForm-username' class="label pull-left" id='contractorLabel'>Inspector</label>
+               {{ ownerForm.username }}
+               <label for='id_ownerForm-company' class="label pull-left" id='contractorLabel'>Company</label>
+               {{ ownerForm.company }}
+                <br/>
+                <hr/>
+               <h3>Property Details</h3> 
+               {{ propForm.as_p }}
+            <div class="col-xs-12 text-center">
+              <a href='/inspector_rooms'><button class="btn btn-default gutter-bottom gutter-top" type="button" id="newPropBtn">Save &amp; continue</button></a>
+              <button id='resetBtn' type='reset' name='reset' class='btn btn-red'>Clear Form</button>
+            </div>
+          </form>
+        </div>
+      </div>
+<!-- ----------------------------------------------------------->
+    </div>
+  </div>
+           
+<!----------------------------------------------------------
+            <div class="col col-xs-9 index-info-container hidden updatable-prop" data-url="{{request.path}}">
+                {% comment %}Owner section{% endcomment %}
+                <div class="index-update-container"
+                    data-pk="{{property.ownerId.pk}}">
+                Firstname: <a href="#" class="index-xeditable"
+                                data-name="firstname"
+                                data-title="owner firstname"
+                                data-class="Owner">{{property.ownerId.firstname}}</a><br>
+
+                Lastname: <a href="#" class="index-xeditable"
+                                data-name="lastname"
+                                data-title="owner lastname"
+                                data-class="Owner">{{property.ownerId.lastname}}</a><br>
+
+                Email: <a href="#" class="index-xeditable"
+                                data-name="email"
+                                data-title="owner email"
+                                data-class="Owner">{{property.ownerId.email}}</a><br>
+
+                Phone: <a href="#" class="index-xeditable"
+                                data-name="phone"
+                                data-title="owner phone number"
+                                data-class="Owner">{{property.ownerId.phone}}</a><br>
+                </div>
+
+                {% comment %}Property section{% endcomment %}
+                <div class="index-update-container"
+                    data-pk="{{property.id}}">
+                Address: <a href="#" class="index-xeditable"
+                                data-name="address"
+                                data-title="property address"
+                                data-class="Property">{{property.address}}</a><br>
+
+                Property Type: <a href="#" class="index-xeditable-select propertyType"
+                                data-name="propertyTypeId"
+                                data-obj="{{propTypeList}}"
+                                data-value="{{property.propertyTypeId.id}}"
+                                data-class="Property"
+                                >{{property.propertyTypeId.typeName}}</a><br>
+
+                Property Size: <a href="#" class="index-xeditable"
+                                data-name="propertySize"
+                                data-title="property size"
+                                data-class="Property">{{property.propertySize}}</a>
+                                <a data-name="unit"
+                                data-title="property unit"
+                                data-class="Property"> unit</a><br>
+
+                Building Type: <a href="#" class="index-xeditable-select buildingType"
+                                data-name="buildingTypeId"
+                                data-obj="{{buildTypeList}}"
+                                data-value="{{property.buildingTypeId.id}}"
+                                data-class="Property"
+                                >{{property.buildingTypeId.buildingName}}</a><br>
+                </div>
+           </div>
+---------------------------------------------------------->
+{% if allProperties %}
+    {% for property in allProperties %}
+    <li class="list-group-item clearfix">
+        <div class="row">
+            <div class="col col-xs-9 non-updatable-prop">
+                <a href="{% url 'inspection:room' property.id %}">
+                    <span class="propAddress">{{property.address}}</span> - <span class="propOwnerFname">{{property.ownerId.firstname}}</span> <span class="propOwnerLname">{{property.ownerId.lastname}}</span>
+                </a>
+            </div>
+            
+            <div class="col col-xs-3">
+                <a href="{% url 'inspection:room' property.id %}" class="btn btn-primary" style="width: 37px;">
+                    <i class="fa fa-eye" aria-hidden="true" title="inspect"></i>
+                </a>
+                <button class="btn btn-warning updateProp" style="width: 37px;">
+                    <i class="fa fa-cog" aria-hidden="true" title="update"></i>
+                </button>
+                <button class="btn btn-danger delProp" data-id="{{property.id}}">
+                    <i class="fa fa-trash" aria-hidden="true" title="delete"></i>
+                </button>
+            </div>
+        </div>
+    </li>
+    {% endfor %}
+{% else %}
+<h3>You currently don't have any property</h3>
+{% endif %}
+<!------------------------------------------------------------>
+  <script src="scripts/validate.js"></script>
+</div>
+{% endblock %}
