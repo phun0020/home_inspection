@@ -255,34 +255,44 @@ body{
 label {
     text-align:left !important
 }
-
+hr {
+    color:$font-light;
+    box-shadow:0 0 15px black, 0 0 15px black
+}
 //unsorted
 .thumbnail{
     max-height: 108px
 }
-#inspector-app-btn{
-    background-image:
-        linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)),url("/static/inspection/img/inspector-feature.jpg") !important;
-    background-size:cover
+.inspector-app-btn{
+    background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)),url("/static/inspection/img/inspector-feature.jpg") !important;
+    background-size:cover;
+    &:hover {
+        background-image: linear-gradient(rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)),url("/static/inspection/img/inspector-feature.jpg") !important;
+    }
 }
-#agent-app-btn{
-    background-image:
-        linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)),url("/static/inspection/img/agent-feature.jpg") !important;
-    background-size:cover
+.agent-app-btn{
+    background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)),url("/static/inspection/img/agent-feature.jpg") !important;
+    background-size:cover;
+    &:hover {
+        background-image: linear-gradient(rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)),url("/static/inspection/img/agent-feature.jpg") !important;
+    }
 }
-#buyer-app-btn{
-    background-image:
-        linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)),url("/static/inspection/img/buyer-feature.jpg") !important;
-    background-size:cover
+.buyer-app-btn{
+    background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)),url("/static/inspection/img/buyer-feature.jpg") !important;
+    background-size:cover;
+    &:hover {
+        background-image: linear-gradient(rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)),url("/static/inspection/img/buyer-feature.jpg") !important;
+    }
 }
-#owner-app-btn{
-    background-image:
-        linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)),url("/static/inspection/img/owner-feature.jpg") !important;
-    background-size:cover
+.owner-app-btn{
+    background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)),url("/static/inspection/img/owner-feature.jpg") !important;
+    background-size:cover;
+    &:hover {
+        background-image: linear-gradient(rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)),url("/static/inspection/img/owner-feature.jpg") !important;
+    }
 }
 #homepage-app-btns > div > a > div {
-    font-weight:700;
-    text-shadow: 1px 1px 5px black, -1px -1px 5px black, 1px -1px 5px black, -1px 1px 5px black;
+    font-weight:700
 }
 #nav-popup {
     padding-left:0 !important;
@@ -508,7 +518,9 @@ label {
     color:$font-dark !important;
     
 }
-
+.dashboard-report-btn {
+    padding:$gutter $gutter/2 !important
+}
 // ************** FOOT
 footer {
     padding: $gutter*2 0  0!important;
@@ -705,14 +717,34 @@ footer a {
 
 
 //------------------------- BOOTSTRAP ADDONS --------------------------//
+.clearfix {
+    clear:both
+}
+.title-shadow {
+    text-shadow: 1px 1px 5px black, -1px -1px 5px black, 1px -1px 5px black, -1px 1px 5px black;
+}
+.gutter-top {
+    margin-top:$gutter !important    
+}
 
-
+.gutter-top-lg {
+    margin-top:$gutter * 2 !important    
+}
+.gutter-bottom {
+    margin-bottom:$gutter !important
+}
 button {
     background-color:none!important
 }
 // button-clear addon
-.btn {box-shadow:0 10px 20px $darkgrey; white-space: normal !important;
-    &:hover {font-weight:normal!important}}
+.btn {
+    box-shadow:0 10px 20px $darkgrey; 
+    white-space: normal !important;
+    font-size:15px !important;
+    &:hover {
+        font-weight:normal!important
+    }
+}
 .btn-clear{background-color:rgba(0,0,0,.5) !important}
 .btn-clear.focus,.btn-clear:focus{color:#333;background-color:#e6e6e6;border-color:#8c8c8c}
 .btn-clear:hover{color:$font-dark;background-color:rgba(255,255,255,.5) !important;border-color:#adadad}

@@ -208,28 +208,39 @@ body {
 label {
   text-align: left !important; }
 
+hr {
+  color: #aaa;
+  box-shadow: 0 0 15px black, 0 0 15px black; }
+
 .thumbnail {
   max-height: 108px; }
 
-#inspector-app-btn {
+.inspector-app-btn {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/static/inspection/img/inspector-feature.jpg") !important;
   background-size: cover; }
+  .inspector-app-btn:hover {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("/static/inspection/img/inspector-feature.jpg") !important; }
 
-#agent-app-btn {
+.agent-app-btn {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/static/inspection/img/agent-feature.jpg") !important;
   background-size: cover; }
+  .agent-app-btn:hover {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("/static/inspection/img/agent-feature.jpg") !important; }
 
-#buyer-app-btn {
+.buyer-app-btn {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/static/inspection/img/buyer-feature.jpg") !important;
   background-size: cover; }
+  .buyer-app-btn:hover {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("/static/inspection/img/buyer-feature.jpg") !important; }
 
-#owner-app-btn {
+.owner-app-btn {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/static/inspection/img/owner-feature.jpg") !important;
   background-size: cover; }
+  .owner-app-btn:hover {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("/static/inspection/img/owner-feature.jpg") !important; }
 
 #homepage-app-btns > div > a > div {
-  font-weight: 700;
-  text-shadow: 1px 1px 5px black, -1px -1px 5px black, 1px -1px 5px black, -1px 1px 5px black; }
+  font-weight: 700; }
 
 #nav-popup {
   padding-left: 0 !important; }
@@ -444,6 +455,9 @@ label {
   margin: 0 !important;
   color: #333 !important; }
 
+.dashboard-report-btn {
+  padding: 20px 10px !important; }
+
 footer {
   padding: 40px 0 0 !important; }
 
@@ -565,12 +579,28 @@ footer a {
   #utlRm:hover {
     background-image: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), url(/img/rooms/utilityRm.jpg); }
 
+.clearfix {
+  clear: both; }
+
+.title-shadow {
+  text-shadow: 1px 1px 5px black, -1px -1px 5px black, 1px -1px 5px black, -1px 1px 5px black; }
+
+.gutter-top {
+  margin-top: 20px !important; }
+
+.gutter-top-lg {
+  margin-top: 40px !important; }
+
+.gutter-bottom {
+  margin-bottom: 20px !important; }
+
 button {
   background-color: none !important; }
 
 .btn {
   box-shadow: 0 10px 20px #111;
-  white-space: normal !important; }
+  white-space: normal !important;
+  font-size: 15px !important; }
   .btn:hover {
     font-weight: normal !important; }
 
