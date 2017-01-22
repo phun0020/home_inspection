@@ -22,31 +22,42 @@ RUN SERVER
 5. example http://127.0.0.1:8000/inspection/, http://127.0.0.1:8000/admin/ 
 
 FOLDER TREE
-+.vscode      // FOLDER DESCRIPTION - ? //                      
-+IAWD      // FOLDER DESCRIPTION - ? //                                
-+home_inspection : app for inspection   
-	+pycache : auto generate when run   
-	+migrations : auto generate      // @TAM: AUTO GENERATE WHAT? FIELD INFORMAITON? //
-	+static : contains js, css, images for app 
-	+templates 
-	   -base.html : layout for everypage such as header, footer 
-	   -component.html : content for component page       
-	   -index.html : content for homepage       
-	   -room.html : content for room   
-	+uploads : images that user upload should goes here      // TO DO //   
-	-__init.py : load needed packages, empty right now    
-	
- (?)-admin.py : if create a new model, goes here and add name of that model to array so you can see it in admin page    
- (?)-apps.py : haven't touch    
- (?)-test.py : your test cases go here  
-
-
-	-forms.py : group DB values to create form models    
-	-models.py : DB data blueprint    
-		NOTE: if you change the structure of any model, need to open new command line & run 'python manage.py makemigrations home_inspection' & 'python manage.py migrate'	
-	-urls.py : define url query patterns, ???? connect with urls.py in parent folder    ????
-	-views.py : retrieve data from database and send it to your templates (eg controller) 
--changelog.txt :      // FILE DESCRIPTION - ? //
--db.sqlite3 : app database
--manage.py :      // FILE DESCRIPTION - ? //
--README.txt
++ .vscode    // FOLDER DESCRIPTION - ? // 
+    - launch.json :    // FILE DESCRIPTION - ? //
+    - settings.json :    // FILE DESCRIPTION - ? //                    
++ home_inspection : app for inspection   
+    +pycache : auto generated  
+    +migrations : auto generated
+    +static : contains js, css, images for app 
+    +templates 
+        - index.html : homepage content    // TO MOVE INTO INSPECTION DIRECTORY
+	+ inspection 
+	    - about.html : about content
+	    - articles.html : technical articles content
+	    - base.html : repeating layout on everypage
+            -component.html : content for component page
+	    - contact.html : contact content
+	    - dashboard : user dashboard to start report, review reports, edit profile, logout
+	    - inspector_rooms.html : inspector report room selection //CAN IT BE ALTERED TO TO BE USED FOR ALL TYPES OF REPORTS?
+	    - inspector_start.html : inspector start new report //CAN IT BE ALTERED TO TO BE USED FOR ALL TYPES OF REPORTS?
+	    - login.html : user login page, registration redirect
+	    - profile.html : edit profile page
+	    - register.html : new user registration  
+            -room.html : content for room   
+	    - terms.html : terms and conditions content
+	    - user_reports.html : standalone user reports page
+    +uploads : images that user upload should goes here      // TO DO //   
+    -__init.py : load needed packages, empty right now    	
+    - admin.py : if create a new model, goes here and add name of that model to array so you can see it in admin page    
+    - apps.py : haven't touch    
+    - forms.py : group DB values to create form models    
+    - models.py : DB data blueprint    
+	NOTE: if you change the structure of any model, need to open new command line & run 'python manage.py makemigrations home_inspection' & 'python manage.py migrate'	
+    - service.py :    // FILE DESCRIPTION - ? //
+    - urls.py : define url query patterns
+    - views.py : retrieve data from database and send it to your templates (eg controller) 
++ IAWD    // FOLDER DESCRIPTION - ? //            
+- changelog.txt : track changes // TO UPDATE
+- db.sqlite3 : app database
+- manage.py : django management system
+- README.txt
