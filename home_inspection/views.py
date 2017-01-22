@@ -6,65 +6,118 @@ from .forms import PropertyForm, OwnerForm
 from .service import isXeditableCallRequest, updateWithXeditable
 import json
 
-##### DASHBOARD region ######
+##### HOME region ######
 def index(request):
     return render(request, 'index.html')
-##### end of DASHBOARD region ######
+##### end of HOME region ######
 
 ##### ABOUT region ######
 def about(request):
     return render(request, 'inspection/about.html')
 ##### end of ABOUT region ######
+
 ##### AGENT ROOM SELECT region ######
 def agent_rooms(request):
     return render(request, 'inspection/agent_rooms.html')
 ##### end of AGENT ROOM region ######
+
 ##### AGENT START region ######
 def agents(request):
     return render(request, 'inspection/agents.html')
 ##### end of AGENT START region ######
+
 ##### BUYERS ROOM SELECT region ######
 def buyers(request):
     return render(request, 'inspection/buyers.html')
 ##### end of BUYERS ROOM SELECT region ######
-##### INSPECTOR ROOM SELECT region ######
-def inspect_rooms(request):
-    return render(request, 'inspection/inspect_rooms.html')
-##### end of INSPECTOR ROOM SELECT  region ######
+
+##### OWNERS ROOM SELECT region ######
+def owners(request):
+    return render(request, 'inspection/owners.html')
+##### end of BUYERS ROOM SELECT region ######
+
 ##### INSPECTOR START region ######
 def inspector(request):
     return render(request, 'inspection/inspector.html')
 ##### end of INSPECTOR START region ######
+
 ##### LOGIN region ######
 def login(request):
     return render(request, 'inspection/login.html')
 ##### end of LOGIN region ######
+
 ##### REGISTER region ######
 def register(request):
     return render(request, 'inspection/register.html')
 ##### end of REGISTER region ######
+
 ##### CONTACT region ######
 def contact(request):
     return render(request, 'inspection/contact.html')
 ##### end of CONTACT region ######
+
 ##### REPORTS region ######
 def reports(request):
     return render(request, 'inspection/user_reports.html')
 ##### end of REPORTS region ######
-##### REPORTS region ######
+
+##### TERMS region ######
 def terms(request):
     return render(request, 'inspection/terms.html')
-##### end of REPORTS region ######
-##### REPORTS region ######
+##### end of TERMS region ######
+
+##### ARTICLES region ######
 def articles(request):
     return render(request, 'inspection/articles.html')
-##### end of REPORTS region ######
+##### end of ARTICLES region ######
 
-##### PROPERTY region ######
+##### PROFILE region ######
+def profile(request):
+    return render(request, 'inspection/profile.html')
+##### end of PROFILE region ######
+
+##### DASHBOARD region ######
 def dashboard(request):
     # get all needed data: properties, buildingType, propType
     allProperties = get_list_or_404(Property.objects.order_by('-id'), isDelete = False)
+    
+    # list of propType and BuildType for Xeditable's source
+    propTypeList = [ob.as_json() for ob in PropertyType.objects.all()]
+    buildTypeList = [ob.as_json() for ob in BuildingType.objects.all()]
 
+    # form
+    propForm = PropertyForm(prefix="propFrom")
+    ownerForm = OwnerForm(prefix="ownerForm")
+    
+    # render normal page if doesn't receive any request
+    return render(request, 'inspection/dashboard.html', {
+        'allProperties' : allProperties,
+        'propForm' : propForm,
+        'ownerForm' : ownerForm,
+        'propTypeList' : propTypeList,
+        'buildTypeList' : buildTypeList
+    })
+
+def deleteProp(request, property_id):
+    # change the selected property to True
+    
+    selectedProp = get_object_or_404(Property, id=property_id)
+    selectedProp.ownerId.delete()
+    selectedProp.delete()
+
+    allProperties = get_list_or_404(Property.objects.order_by('-id'), isDelete = False)
+
+    return render(request, 'inspection/partial/dashboard.partialreports.html', {
+        'allProperties' : allProperties
+    })
+##### end of DASHBOARD region ######
+
+##### inspector_start region ######
+def inspector_start(request):
+    # get all needed data: properties, buildingType, propType
+    allProperties = get_list_or_404(Property.objects.order_by('-id'), isDelete = False)
+    
+        
     # list of propType and BuildType for Xeditable's source
     propTypeList = [ob.as_json() for ob in PropertyType.objects.all()]
     buildTypeList = [ob.as_json() for ob in BuildingType.objects.all()]
@@ -93,7 +146,7 @@ def dashboard(request):
             # update the allProperties, can't use the one above
             allProperties = get_list_or_404(Property.objects.order_by('-id'), isDelete = False)
 
-            return render(request, 'inspection/partial/dashboard.partial.html', {
+            return render(request, 'inspection/partial/dashboard.partialreports.html', {
                 'allProperties' : allProperties
             })
 
@@ -118,34 +171,22 @@ def dashboard(request):
 
         else:
             return HttpResponse('<h1>Something is not right...</h1>')
-    
+        
     # render normal page if doesn't receive any request
-    return render(request, 'inspection/dashboard.html', {
+    return render(request, 'inspection/inspector_start.html', {
         'allProperties' : allProperties,
         'propForm' : propForm,
         'ownerForm' : ownerForm,
         'propTypeList' : propTypeList,
         'buildTypeList' : buildTypeList
     })
-
-def deleteProp(request, property_id):
-    # change the selected property to True
-    
-    selectedProp = get_object_or_404(Property, id=property_id)
-    selectedProp.ownerId.delete()
-    selectedProp.delete()
-
-    allProperties = get_list_or_404(Property.objects.order_by('-id'), isDelete = False)
-
-    return render(request, 'inspection/partial/dashboard.partial.html', {
-        'allProperties' : allProperties
-    })
-
-##### end of PROPERTY region ######
-
+##### end of inspector_start region ######
 
 ##### ROOM region ######
-def room(request, property_id):
+
+##### INSPECTOR ROOM SELECT region ######
+def inspector_rooms(request):
+#def room(request, property_id):
     # get individual property
     property = get_object_or_404(Property, id = property_id)
 
@@ -179,6 +220,12 @@ def room(request, property_id):
             'property' : property,
             'roomType' : roomType
         })
+##### end of INSPECTOR ROOM SELECT  region ######
+
+def room(request):
+
+
+    return render(request, 'inspection/inspector_rooms.html')
 
 def deleteRoom(request, property_id, room_id):
     selectedRoom = get_object_or_404(Room, id=room_id).delete()
@@ -198,7 +245,6 @@ def component(request, property_id, room_id):
     return render(request, 'inspection/component.html', {
         'room' : room
     }) 
-
 ##### end of COMPONENT region ######
 
     

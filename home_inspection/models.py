@@ -1,8 +1,8 @@
 from django.db import models
 
 class Inspector(models.Model):
-    firstname = models.CharField(max_length=50)
-    lastname = models.CharField(max_length=50)
+    username = models.CharField(max_length=75)
+    company = models.CharField(max_length=50)
     email = models.CharField(max_length=255)
     phone = models.CharField(max_length=20)
     description = models.CharField(max_length=2000)
@@ -13,18 +13,24 @@ class Inspector(models.Model):
     # from former customer
     # ...
 
-    #re-write it with format()
+    # Re-write it with format().
     def __str__(self):
-        return self.firstname + ' ' + self.lastname  
+        return self.username  
+
+class User(models.Model):
+    username = models.CharField(max_length=75)
+    
+    def __str__(self):
+        return self.username
 
 class Owner(models.Model):
-    firstname = models.CharField(max_length=50)
-    lastname = models.CharField(max_length=50)
+    username = models.CharField(max_length=75)
+    company = models.CharField(max_length=50)
     email = models.CharField(max_length=255)
     phone = models.CharField(max_length=20)
 
     def __str__(self):
-        return self.firstname + ' ' + self.lastname  
+        return self.username 
 
 #-------- Property section --------
 class PropertyType(models.Model):
@@ -37,6 +43,17 @@ class PropertyType(models.Model):
     def as_json(self):
         return {'value':self.id,'text':self.typeName}
 
+# Create table in sqlite + data.
+#class UnitOfMeasure(models.Model):
+#    typeCode = models.CharField(max_length=20)
+#    typeName = models.CharField(max_length=255)
+#
+#    def __str__(self):
+#        return self.typeName
+#
+#    def as_json(self):
+#        return {'value':self.id,'text':self.typeName}
+
 class BuildingType(models.Model):
     buildingCode = models.CharField(max_length=20)
     buildingName = models.CharField(max_length=255)
@@ -48,6 +65,9 @@ class BuildingType(models.Model):
         return {'value':self.id,'text':self.buildingName}
 
 class Property(models.Model):
+    projectNum = models.CharField(max_length=45)
+    client = models.CharField(max_length=45)
+    
     ownerId = models.ForeignKey(Owner, on_delete=models.CASCADE, blank = True, null = True)
     # can set a different inspector
     inspectorId = models.ForeignKey(Inspector, on_delete=models.SET_NULL, blank = True, null = True)
@@ -58,14 +78,16 @@ class Property(models.Model):
 
     # should have measure unit
     propertySize = models.DecimalField(max_digits=10, decimal_places=2)
-    buildingTypeId = models.ForeignKey(BuildingType, on_delete=models.SET_NULL, blank = True, null = True)
 
+    # TODO: create table & form.
+    # unitOfMeasure = models.ForeignKey(UnitOfMeasure, on_delete=models.SET_NULL, blank = True, null = True)
+    
     # should have createdById, take from logged user
     createdDate = models.DateTimeField(auto_now_add = True)
 
     #never delete from database, just hide it when query
     isDelete = models.BooleanField(default=False)
-
+            
     def __str__(self):
         return self.address
 
