@@ -1,0 +1,157 @@
+{% extends 'inspection/base.html' %}
+{% block title %}Dashboard{% endblock %}
+
+
+{% block content %}
+<div class="content">
+    <div id="myCarousel" class="hidden-xs carousel slide box-shadow" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+    <li data-target="#myCarousel" data-slide-to="3"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <img src="/static/inspection/img/inspectorslide.jpg" alt="Home inspector section">
+        <a href="/inspector_start">
+      <div class="carousel-caption col-xs-4 col-md-2 text-center">
+           <div class="carousel-caption-inner">
+                <h3>Home Inspectors</h3>
+               <p class="hidden-sm hidden-md">Use the walkthrough tool to organize your inspection</p>
+                <span class="no-margin-bottom btn btn-red inline">Start Here</span>
+            </div>
+      </div>
+        </a>
+    </div>
+
+    <div class="item">
+      <img src="/static/inspection/img/agentslide.jpg" alt="Agent home review section">
+      <a href="#">
+       <div class="carousel-caption col-xs-4 col-md-2 text-center">
+        
+        <div class="carousel-caption-inner">
+        <h3>Real Estate Agents</h3>
+               <p class="hidden-sm hidden-md">Review properties and build your mls listing</p>
+                <span class="no-margin-bottom btn btn-red inline">Start Here</span>
+        </div>
+        
+      </div>
+      </a>
+    </div>
+
+    <div class="item">
+      <img src="/static/inspection/img/buyerslide.jpg" alt="Home Buyer review section">
+        <a href="#">
+      <div class="carousel-caption col-xs-4 col-md-2 text-center">
+        <div class="carousel-caption-inner">
+        <h3>Home Buyers</h3>
+               <p class="hidden-sm hidden-md">Track house viewings and rate them with our easy walkthrough tool</p>
+                <span class="no-margin-bottom btn btn-red inline">Start Here</span>
+        </div>
+      </div>
+        </a>
+    </div>
+
+    <div class="item">
+      <img src="/static/inspection/img/ownerslide.jpg" alt="Home Owner projection walkthrough">
+        <a href="#">
+      <div class="carousel-caption col-xs-4 col-md-2 text-center">
+        <div class="carousel-caption-inner">
+        <h3>Home Owners</h3>
+               <p class="hidden-sm hidden-md">Plan for the future with a comprehensive house review</p>
+                <span class="no-margin-bottom btn btn-red inline">Start Here</span>
+        </div>
+      </div>
+        </a>
+    </div>
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+
+<!-- WELCOME BANNER -->
+<div class="horizontal-banner hidden-xs col-sm-offset-3 col-sm-6">
+    <h1 class="text-center">
+       A comprehensive tool for home evaluations &amp; walkthroughs
+    </h1>
+</div>
+   
+<!-- HOMEPAGE FEATURES -->
+    <div id="homepage-features" class="hidden-xs col-sm-10 col-sm-offset-1">             
+           <div class="col-xs-12 col-sm-5 col-sm-offset-1">
+            <div class='well text-center box-shadow'>
+               <img src="/static/inspection/img/inspector-feature.jpg" alt="Home inspector feature" style="max-width:100%">
+               <h3>Home Inspectors</h3>
+               <p>Lorem ipsum dolor sit amet, eu vocibus praesent cum. Id mundi prompta nam. Usu in quaeque legimus tibique, ut vis tota viris, duis mucius oporteat duoan.</p>
+               <br/>
+               <div class="home-btn col-xs-12">
+                   <a href="/inspector_start"><div class="btn btn-red"><h5>Inspect Home</h5></div></a>
+               </div>
+               <br/><br/><br/><br/>
+                
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-5">
+            <div class='well text-center box-shadow'>
+               <img src="/static/inspection/img/agent-feature.jpg" alt="Real estate agent feature" style="max-width:100%">
+               <h3>Real Estate Agents</h3>
+               <p>Ius ex nibh ludus nullam, vim ei homero accusamus. Quas adolescens mel eu, per ne impedit recusabo comprehensam, ius invidunt periculis in. Aeque utamur eu mel.</p>
+               <br/>
+               <div class="home-btn col-xs-12">
+                   <a href="#"><div class="btn btn-red"><h5>Review Home</h5></div></a>
+               </div>
+               <br/><br/><br/><br/>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-5 col-sm-offset-1">
+            <div class='well text-center box-shadow'>
+               <img src="/static/inspection/img/owner-feature.jpg" alt="Home Owner feature" style="max-width:100%">
+               <h3>Home Owners</h3>
+               <p>At case aliquip lobortis qui. Idque facete vidisse est ne, ut graeco vituperatoribus vix. Ut brute nobis audire quo, eum qualisque patrioque consetetur urbanitas.</p>
+               <br/>
+               <div class="home-btn col-xs-12">
+                   <a href="#"><div class="btn btn-red"><h5>Home Owner Projection</h5></div></a>
+               </div>
+               <br/><br/><br/><br/>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-5">
+            <div class='well text-center box-shadow'>
+               <img src="/static/inspection/img/buyer-feature.jpg" alt="Home buyer feature" style="max-width:100%">
+               <h3>Home Buyers</h3>
+               <p>At case aliquip lobortis qui. Idque facete vidisse est ne, ut graeco vituperatoribus vix. Ut brute nobis audire quo, eum qualisque patrioque consetetur  urbanitas.</p>
+               <br/>
+               <div class="home-btn col-xs-12">
+                   <a href="#"><div class="btn btn-red"><h5>Buyer Checklist</h5></div></a>
+               </div>
+               <br/><br/><br/><br/>
+            </div>
+        </div>
+    </div>
+    <!-- HOMEPAGE FEATURES - MOBILE -->
+    <div id="homepage-app-btns" class="col-xs-10 col-xs-offset-1 hidden-sm hidden-md hidden-lg">
+        <div class="col-xs-12 text-center"><a href="/dashboard"><div class="app-btn btn btn-red inspector-app-btn"><h4 class="title-shadow">Home Inspection Report</h4></div></div></a>
+        <div class="col-xs-12 text-center"><a href="/agents"><div class="app-btn btn btn-red agent-app-btn"><h4 class="title-shadow">Real Estate Agent Review</h4></div></div></a>
+        <div class="col-xs-12 text-center"><a href="/buyers"><div class="app-btn btn btn-red buyer-app-btn"><h4 class="title-shadow">Home Buyer Checklist</h4></div></div></a>
+        <div class="col-xs-12 text-center"><a href="/owners"><div class="app-btn btn btn-red owner-app-btn"><h4 class="title-shadow">Home Owner Projection</h4></div></div></a>
+    </div>
+        {% load staticfiles %} 
+        <script src='{% static "inspection/js/homepage_control.js" %}' type="text/javascript" defer="defer"></script>
+</div>
+
+{% endblock %}
+
+
