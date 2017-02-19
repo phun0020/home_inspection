@@ -1,0 +1,17 @@
+{% extends 'inspection/base.html' %}
+{% block title %}Index{% endblock %}
+
+
+{% block content %}<div class="col col-xs-12 col-sm-8 col-sm-offset-2 text-center">
+    <div class="content">
+         <h2>Logged Reports</h2>
+             <hr/>
+              <div class="col-xs-12 text-left">
+            <ul class="list-group" id="property-container">
+                {% include "inspection/partial/dashboard.partialreports.html" %}
+            </ul>
+            
+        </div>
+      </div>
+    </div>
+{% endblock %}

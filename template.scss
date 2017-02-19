@@ -1,0 +1,959 @@
+//------------------------------------------------------------------//
+//                             VARIABLES                            //
+//------------------------------------------------------------------//
+$font-small:.88em;
+
+$font-light: #aaa;
+$font-dark: #333;
+
+$gutter:20px;
+$gutterLRG:50px;
+
+$verydarkgrey: #050505;
+$darkgrey: #111;
+$lightgrey: #222;
+$offwhite: #aaa;
+$red: #9c121d;
+//------------------------------------------------------------------//
+//                              COLORS                              //
+//------------------------------------------------------------------//
+.red {
+    color:$red
+}
+
+#property-container a,body, #includeMain, #includeFoot {
+    color:$font-light
+}
+
+a:hover {
+    color:$font-light !important;
+    font-weight:700 !important;
+}
+
+#myCarousel h3{
+    color:white
+}
+html,body {
+    position:relative;
+    min-height:100vh        
+}
+#nav-popupWrapper-inner > li.hidden-xs.popup-link.dropdown.open li a{
+    padding-top:0;
+    padding-bottom:0;
+}
+#nav-popupWrapper-inner h5{
+    color:$font-dark;
+    padding:$gutter $gutter/2;
+    margin:0 !important;
+    &:hover{
+        
+    transition: background-color 0.5s ease;
+    background-color:$offwhite
+    }
+}
+#copyright-img{
+    margin:0 auto;
+    max-width:500px;
+    height:30px;
+    background-image:url("/static/inspection/img/redline.png");
+    background-size:auto 30px;
+}
+.topbar-bg {
+    background-image:url("/static/inspection/img/headerbg.png");
+    background-size:auto 83px;
+    height:83px;
+}
+.topbar-bg-lrg{
+    background-image:url("/static/inspection/img/headerbg.png");
+    background-size:auto 83px;
+    height:83px;
+}
+.topbar-space{
+    background-image:url("/static/inspection/img/headerbg.png");
+    background-size:auto 83px;
+    height:83px;    
+}
+.mini-logo {
+    width:100px;
+    height:83px;
+    background-image:url('/static/inspection/img/lantern-notext.png');
+    background-position:center;
+    background-size:auto 83px;
+}
+#includeHead{
+    background-size:auto 83px;
+    color:$font-light
+}
+label {
+    color:grey !important;
+    margin: $gutter 0 0 0 !important;
+    font-weight: normal !important;
+    font-size:$font-small;
+}
+#homepage-features div.btn{
+    box-shadow:0 5px 10px $font-dark;
+    &:active{
+        box-shadow:none
+    }
+}
+.list-group-item {
+    background:transparent !important
+}
+.well {
+    background-color:$offwhite !important;
+    border:none !important;
+}
+.well h3,.well p{
+    color:$font-dark;
+}
+#copyright {
+    color:$font-light;
+    background:$font-dark;
+    font-size:$font-small
+}
+footer a{
+    color:$font-light
+}
+#footer-topbar{
+    background-image: url("/static/inspection/img/bg-tile.jpg");
+}
+footer{
+    padding-top:$gutterLRG
+}
+a {
+    color:$font-light !important;
+}
+#horznav{
+    padding:0;
+    a {
+        color:$font-light
+    }
+}
+#horznav li li a {
+    color:$font-light
+}
+.nav>li>a:hover,.nav>li>a:focus{
+    transition: background-color 0.5s ease;
+    background-color: lightgray !important;
+        border:1px solid transparent !important
+}
+#newPropForm input,#newPropForm select {
+    @extend .box-shadow
+}
+.box-shadow {
+    box-shadow:0 10px 20px $darkgrey !important
+}
+.box-shadow-light {
+    box-shadow:0 5px 10px $lightgrey !important
+}
+
+#logo-tab:hover{
+    background-color:transparent;
+}
+
+.carousel-caption{
+    background:rgba(15,15,15,.85);
+    padding:$gutter*2;      
+    border-radius:6px;
+    &:hover{
+        font-weight:normal !important
+    }
+}
+
+footer{
+    background-image: url("/static/inspection/img/bg-tile.jpg");
+    color:$font-light
+}
+.app-btn {
+    height:120px;
+    width:250px;
+    margin:$gutter*2 auto;
+    padding:$gutter*2 $gutter !important;
+    background:black;
+    box-shadow: 0 0 20px $darkgrey;
+    border:1px outset #666 !important;
+    &:hover{
+        background:$font-light;
+        color:$darkgrey !important
+    }
+}
+
+.banner-link:hover {
+    text-shadow: 0 5px 5px $darkgrey !important
+}
+
+#homepage-features h3 {
+    text-shadow: 0 1px 1px $font-dark
+}
+.glyphicon-pencil {
+    color: $font-light
+}
+.table-hover>tbody>tr:hover {
+    background-color:rgba(255,255,255,.1) !important
+}
+
+//------------------------------------------------------------------//
+//                               FONTS                              //
+//------------------------------------------------------------------//
+* {
+    font-size:15px;
+}
+a:hover{
+    text-decoration:none !important
+}
+h5, .h5, h6, .h6, strong, body{
+    font-family:Roboto, sans-serif !important
+}
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family:serif !important
+}
+h1, .h1 {
+    font-size:4em !important
+}
+h2, .h2 {
+    font-size:3em !important
+}
+h3, .h3 {
+    font-size:2em !important
+}
+h5, .h5 {
+    font-size:1.67em !important
+}
+.roomTitle {
+    color:white !important;
+    margin:10px !important;
+    text-shadow: 0 0 5px #000;
+}
+#copyright {
+    font-size:$font-small
+}
+.font-small {
+    font-size:$font-small !important
+}
+//------------------------------------------------------------------//
+//                               BASE                               //
+//------------------------------------------------------------------//
+// ************** HELPERS **************
+.no-padding{
+    padding: 0!important;
+}
+.no-margin{
+    margin: 0!important;
+}
+.inline{
+    display:inline !important
+}
+.list-group-item{
+    border:none !important
+}
+.full {
+    width:100%
+}
+
+// ************** BODY **************
+body{
+    margin:0;
+    padding:0;
+    background-image: url("/static/inspection/img/bg-tile.jpg");
+}
+#includeHead,#includeMain,#includeFoot{
+    padding-left:0 !important;
+    padding-right:0 !important
+}
+
+// ************** TAGS **************
+label {
+    text-align:left !important
+}
+hr {
+    color:$font-light;
+    box-shadow:0 0 15px black, 0 0 15px black
+}
+// ************** HEAD **************
+#includeHead{
+    position:absolute;
+    margin-top:$gutter/6;
+    z-index:5;
+}
+#header-logo-wrap{
+    z-index:10;
+}
+#header-logo{
+    background-image:url('/static/inspection/img/ironlantern.png');
+    background-size:auto 83px;
+    min-width:250px;
+    min-height:83px;
+    max-height:83px;
+}
+.home-tab {
+    padding: 0 !important;
+    border: 0 !important
+}
+#home-wrapper,#bodyMain,#homeMain{
+    min-height:100vh
+}
+#horznav > div > div.nav-brand.col-xs-2.text-center {
+    max-width:48px !important;
+}
+#header-logo-sm {
+    max-height:81px;
+}
+#horznav-inner {
+    padding:$gutter/1.6 0 0 !important;
+}
+
+#nav-popupWrapper-inner > li.hidden-xs.popup-link.dropdown.open > a {
+    border-bottom-right-radius:0 !important;
+    border-bottom-left-radius:0 !important;
+}
+#nav-popupWrapper-inner ul {
+    border-top-right-radius: 4px;
+    margin-left:-1px;
+}
+.nav-brand{
+    padding: 0 !important;
+}
+#logo-tab{
+    border: none;
+    transform:translateY(-$gutter);
+    padding:0 !important;
+    height:83px;
+    &:hover{
+        background:none !important
+    }
+}
+#logo-caption > span > strong { 
+    position:relative;
+    top:-1px
+}
+#header-login-wrapper{
+    position:relative;
+}
+#horznav,#horznav-inner {
+    height:70px;
+}
+#horznav-inner > div.nav-brand.col-xs-12.col-sm-1.text-center {
+    min-width:49px;
+}
+#horznav a {
+        margin-top:4px;
+        padding-bottom:13px
+}
+#widescreen-home > a{
+    margin-top:6px;
+        padding:10px $gutter/1.33333 !important
+}
+
+.nav-tabs{
+    border:none !important
+}
+.navbar-toggle {
+    margin-right:0 !important;
+    border:none !important;
+}
+.nav>li>a{
+    min-width:50px;
+}
+.nav>li>a:hover,.nav>li>a:focus{
+    color:$font-dark !important
+}
+.nav-tabs>li>a {
+    border-bottom-right-radius:4px !important;
+    border-bottom-left-radius:4px !important;
+    padding-bottom:$gutter/2 !important;
+}
+.dropdown-menu>li>a {
+    padding: 0 !important
+}
+#nav-popup{
+    padding-right:0;
+}
+#nav-popupWrapper-inner h5 {
+    padding-left: $gutter    
+}
+// ************** CONTENT **************
+.content{
+    padding-bottom:$gutter
+}
+#includeMain {
+    padding-top:$gutter*5;
+}
+#contentMain{
+    margin:0;
+    padding:$gutter*4 0 0 
+}
+.carousel-caption {
+    padding:$gutter*4 $gutter
+}
+.carousel-caption h3 {
+    padding-bottom: $gutter*2;
+}
+.carousel-caption h3,.carousel-caption span {
+    margin: auto auto;  
+}
+.carousel-caption p{
+    padding-bottom: $gutter*2 !important;          
+}
+#myCarousel span.glyphicon{
+    margin-top:$gutter*2
+}
+.homeBtn{
+    height:750px;
+    position:relative;
+    top:50%;
+    transform:translateY(-50%);
+    text-shadow: 0 1px 2px rgba(0,0,0,.6)
+}
+#homepage-features{
+    margin-top:$gutterLRG
+}
+.well {
+    position: relative;
+    padding: 0 !important;
+    margin-bottom: $gutter*2 !important;
+    min-height: 455px
+}
+.well p, .well h3{
+    padding: 0 $gutter;
+}
+.well img{
+    border-top-right-radius:3px;
+    border-top-left-radius:3px;
+}
+#homepage-features img {
+    width: 100%
+}
+#inputTable {
+    margin-bottom: $gutter*2
+}
+// ************** FOOT **************
+footer {
+    padding: $gutter*2 0  0!important;
+}
+#footer-topbar h2 {
+    margin-top: 0
+}
+footer h4 {
+    text-shadow: -1px 5px 10px $verydarkgrey
+}
+.list-group-item {
+    padding:$gutter !important
+}
+footer a {
+    padding:$gutter/2
+}
+#includeFoot > footer a:hover{
+    color:#f2f2f2;
+    font-weight:700
+}
+.small-input {
+    width: 100px !important;
+    display:inline-block !important;
+}
+.inputfile {
+    display:none
+}
+.carousel-inner img {
+    width:100%
+}
+.divider-vertical {
+    height: 50px;
+    margin: 0 9px;
+    border-left: 1px solid #dfdfdf;
+}
+#copyright{
+    padding:$gutter;
+    box-shadow:0 -10px 20px $darkgrey
+}
+#copyright-logo{
+    height:30px;
+    padding-right:$gutter
+}
+#footer-topbar div div{
+    padding:$gutter;
+}
+#footer-topbar > h4 > div {
+    margin:0 auto;
+    height:30px !important;   
+    width:30px !important;
+    border:3px solid rgba(255,255,255,.2);
+    border-radius:50%;  
+}
+#footer-topbar {
+    height:80px;
+    padding:$gutter*2 0 0;
+}
+
+//------------------------------------------------------------------//
+//                             PAGES                                //
+//------------------------------------------------------------------//
+//unsorted
+.thumbnail{
+    max-height: 108px
+}
+.inspector-app-btn{
+    background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)),url("/static/inspection/img/inspector-feature.jpg") !important;
+    background-size:cover;
+    &:hover {
+        background-image: linear-gradient(rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)),url("/static/inspection/img/inspector-feature.jpg") !important;
+    }
+}
+.agent-app-btn{
+    background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)),url("/static/inspection/img/agent-feature.jpg") !important;
+    background-size:cover;
+    &:hover {
+        background-image: linear-gradient(rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)),url("/static/inspection/img/agent-feature.jpg") !important;
+    }
+}
+.buyer-app-btn{
+    background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)),url("/static/inspection/img/buyer-feature.jpg") !important;
+    background-size:cover;
+    &:hover {
+        background-image: linear-gradient(rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)),url("/static/inspection/img/buyer-feature.jpg") !important;
+    }
+}
+.owner-app-btn{
+    background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)),url("/static/inspection/img/owner-feature.jpg") !important;
+    background-size:cover;
+    &:hover {
+        background-image: linear-gradient(rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)),url("/static/inspection/img/owner-feature.jpg") !important;
+    }
+}
+#homepage-app-btns > div > a > div {
+    font-weight:700
+}
+#nav-popup {
+    padding-left:0 !important;
+}
+.home-btn {
+    position:absolute !important;
+    bottom:$gutter*2
+}
+// ************** ARTICLES **************
+.article-logo{
+    height:50px;
+    margin-top:$gutter/8;
+}
+.card {
+    padding:$gutter !important;
+}
+.card h4{
+    margin-top:0 !important
+}
+//-----INSPECTOR PROPERTY INFO
+#resultsBody .input-group input {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+#edit-property{
+    z-index:15 !important
+}
+.input-group-btn {
+    padding-top: $gutter+1;
+}
+.input-group-btn .btn-red {
+    box-shadow: none !important;
+}
+#inputTable > div:nth-child(3){
+    padding-left: 0 !important
+}
+#inputTable > div:nth-child(4){
+    padding-right: 0 !important
+}
+.horizontal-banner {
+    margin-top: $gutterLRG
+}
+//-----REGISTRATION
+#mastercard{
+    background-image:url('/static/inspection/img/mastercard.png')
+}
+#inputTable > img{
+    height:30px;
+}
+//-----ABOUT
+#owner-img{
+    margin:$gutter*1.5 0 0;
+    max-width: 100%;
+    border-radius:4px;
+}
+.figcaption {
+    margin-bottom:$gutter*1.5
+}
+
+//------DASHBOARD
+#includeMain > div > div > div:nth-child(1) > div > div.panel-heading > div > div > label.btn.btn-red.toggle-on {
+    margin:0 !important;
+    color:white !important;
+}
+
+#includeMain > div > div > div:nth-child(1) > div > div.panel-heading > div > div > label.btn.btn-default.active.toggle-off{
+    margin:0 !important;
+    color:$font-dark !important;
+    
+}
+.dashboard-report-btn {
+    padding:$gutter $gutter/2 !important
+}
+#usernameDetail>div {
+    font: 1.67em Georgia, serif;
+    margin-top:$gutter*1.5
+}
+//------PROFILE
+
+#profileImage{
+max-width:50%
+}
+#profileInformaiton label {
+    float:left
+}
+.quarter-form {
+    width:24% !important;
+    display:inline;
+}
+.half-form {
+    width:50% !important
+}
+.twothirds-form {
+    width:66.66666667% !important
+}
+.profileCheckbox {
+    width:10% !important;
+    margin: 14px 10px !important;
+    float:left;
+}
+#id_paymentForm-method ul {
+    padding-left: 0;
+    margin-bottom: 20px;
+    list-style-type: none;
+}
+#id_paymentForm-method li {
+    width:25%;
+    display:inline
+}
+
+#ccarHolderLabel{
+    width:100%
+}
+.radioSelect {
+    min-width:70px;
+    width:75% !important;
+    margin:0 $gutter !important;
+}
+.vnav-item {
+    padding: $gutter 0 !important;
+}
+.vnav-item h5 {
+    margin: 0 !important;
+    padding: 10px 0;
+}
+.vnav-item h5:hover {
+    background:rgba(255,255,255,.5) !important;
+    color:#333 !important;
+}
+//this shouldn't exist - fix in python?
+#id_paymentForm-method > li:nth-child(1) {
+    display:none;
+}
+//------------------------------------------------------------------//
+//                           ROOM IMGS                              //
+//------------------------------------------------------------------//
+%background-btn {
+    background-size:100% auto;
+    background-repeat:no-repeat;
+    background-position:center
+}
+#attic{}
+#bar{}
+#bathroom{
+    background-image:linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)),url(/img/rooms/bathroom.jpg);
+    @extend %background-btn;
+        &:hover{
+        background-image:linear-gradient(rgba(255, 255, 255, .4), rgba(255, 255, 255, .4)),url(/img/rooms/bathroom.jpg);
+    }
+}
+#bedroom{
+    background-image:
+        linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)),url(/img/rooms/bedroom.jpg);
+    @extend %background-btn;
+        &:hover{
+        background-image:linear-gradient(rgba(255, 255, 255, .4), rgba(255, 255, 255, .4)),url(/img/rooms/bedroom.jpg);
+    }}
+#bkfstNk{
+    background-image:
+        linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)),url(/img/rooms/brkfstNk.jpg);
+    @extend %background-btn;
+        &:hover{
+        background-image:
+            linear-gradient(rgba(255, 255, 255, .4), rgba(255, 255, 255, .4)),url(/img/rooms/brkfstNk.jpg);
+    }
+}
+#coldRm{}
+#deck{}
+#dngRm{
+    background-image:
+        linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)),url(/img/rooms/dngRm.jpg);
+    @extend %background-btn;
+        &:hover{
+        background-image:
+            linear-gradient(rgba(255, 255, 255, .4), rgba(255, 255, 255, .4)),url(/img/rooms/dngRm.jpg);
+    }
+}
+#entrance{
+    background-image:
+        linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)),url(/img/rooms/entrance.jpg);
+    @extend %background-btn;
+        &:hover{
+        background-image:
+            linear-gradient(rgba(255, 255, 255, .4), rgba(255, 255, 255, .4)),url(/img/rooms/entrance.jpg);
+    }
+}
+#fence{}
+#garage{
+    background-image:
+        linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)),url(/img/rooms/garage.jpg);
+    @extend %background-btn;
+        &:hover{
+        background-image:
+            linear-gradient(rgba(255, 255, 255, .4), rgba(255, 255, 255, .4)),url(/img/rooms/garage.jpg);
+    }
+        }
+#gazebo{}
+#genericRm{}
+#hallway{}
+#kitchen{
+    background-image:
+        linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)),url(/img/rooms/kitchen.jpg);
+    @extend %background-btn;
+        &:hover{
+        background-image:
+            linear-gradient(rgba(255, 255, 255, .4), rgba(255, 255, 255, .4)),url(/img/rooms/kitchen.jpg);
+    }
+}
+#lvngRm{
+    background-image:
+        linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)),url(/img/rooms/lvngRm.jpg);
+    @extend %background-btn;
+        &:hover{
+        background-image:
+            linear-gradient(rgba(255, 255, 255, .4), rgba(255, 255, 255, .4)),url(/img/rooms/lvngRm.jpg);
+    }
+}
+#lndrRm{
+    background-image:
+        linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)),url(/img/rooms/laundryRm.jpg);
+    @extend %background-btn;
+        &:hover{
+        background-image:
+            linear-gradient(rgba(255, 255, 255, .4), rgba(255, 255, 255, .4)),url(/img/rooms/lndrRm.jpg);
+    }
+        }
+#mudRm{}
+#mastrBrm{}
+#office{}
+#otherRm{
+    background-image:
+        linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)),url(/img/rooms/unfinishedBsmt.jpg);
+    @extend %background-btn;
+        &:hover{
+        background-image:
+            linear-gradient(rgba(255, 255, 255, .4), rgba(255, 255, 255, .4)),url(/img/rooms/unfinishedBsmt.jpg);
+    }
+}
+#porch{}
+#prvcScrn{}
+#prmtrWll{}
+#pwdrRm{}
+#recRm{
+    background-image:
+        linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)),url(/img/rooms/recRm.jpg);
+    @extend %background-btn;
+        &:hover{
+        background-image:
+            linear-gradient(rgba(255, 255, 255, .4), rgba(255, 255, 255, .4)),url(/img/rooms/recRm.jpg);
+    }
+}
+#sauna{}
+#shed{}
+#solarium{}
+#strgRm{}
+#veranda{}
+#unfinishedBsmt{}
+#utlRm{
+    background-image:
+        linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)),url(/img/rooms/utilityRm.jpg);
+    @extend %background-btn;
+        &:hover{
+        background-image:
+            linear-gradient(rgba(255, 255, 255, .4), rgba(255, 255, 255, .4)),url(/img/rooms/utilityRm.jpg);
+    }
+        }
+#wrkRm{}
+
+
+//------------------------- BOOTSTRAP ADDONS --------------------------//
+.clearfix {
+    clear:both
+}
+.title-shadow {
+    text-shadow: 1px 1px 5px black, -1px -1px 5px black, 1px -1px 5px black, -1px 1px 5px black;
+}
+.gutter-top {
+    margin-top:$gutter !important    
+}
+
+.gutter-top-lg {
+    margin-top:$gutter * 2 !important    
+}
+.gutter-bottom {
+    margin-bottom:$gutter !important
+}
+.gutter-right {
+    padding-right:$gutter !important
+}
+button {
+    background-color:none!important
+}
+// button-clear addon
+.btn {
+    box-shadow:0 10px 20px $darkgrey; 
+    white-space: normal !important;
+    font-size:15px !important;
+    &:hover {
+        font-weight:normal!important
+    }
+}
+.btn-clear{background-color:rgba(0,0,0,.5) !important}
+.btn-clear.focus,.btn-clear:focus{color:#333;background-color:#e6e6e6;border-color:#8c8c8c}
+.btn-clear:hover{color:$font-dark;background-color:rgba(255,255,255,.5) !important;border-color:#adadad}
+
+// button-red addon
+.btn-red{border:1px solid transparent; background-color:#9c121d !important; color:white;}
+.btn-red:hover{background-color:darken(#9c121d, 5%) !important; color:white !important;}
+
+
+//------------------------------------------------------------------//
+//                             QUERIES                              //
+//------------------------------------------------------------------//
+ // 1024 ************** desktop↑
+@media only screen and (min-width:1024px){
+    .content{
+        min-height:58.1vh;
+    }    
+}
+ // 1024 ************** desktop↓
+@media only screen and (max-width:1024px){
+    .content{
+        min-height:56.4vh;
+    }
+}
+
+ // 985 ************** desktop↓
+@media only screen and (max-width:985px){
+    #header-logo{
+        background-image:url('/static/inspection/img/ironlantern-notext.png')
+}
+}
+ // 900 ************** desktop↓
+@media only screen and (max-width:900px){
+    .well {
+        min-height:477px
+    }
+    .carousel-caption {
+        padding: $gutter*2
+    }
+}
+
+// bootstrap MD ************** Tablet↑
+@media only screen and (min-width:692px){
+    .roomSelect {
+        padding:30px !important;
+    }
+}
+ // 768 ************** Tablet↑
+@media only screen and (min-width:768px){
+    #horznav-wrap {
+        position:absolute;
+        right:8.33%;
+        z-index:1;
+    }
+    #widescreen-home{
+        width:50px !important;
+        margin-top:-$gutter*4.2;
+        z-index:10;
+}
+    #horznav-inner {
+        max-width:500px
+    }
+    .topbar-space{
+        background-image:none !important;
+        z-index:0;
+    }
+} 
+
+// 768 ************** Tablet↓
+@media only screen and (max-width:768px){
+    .content{
+        min-height:76.3vh;
+    }    
+    .navbar-toggle{
+        margin-top:$gutter*1.15 !important
+    }
+    .topbar-bg-lrg{
+        background-image:none !important
+    }
+    #home-wrapper,#homeMain{
+    min-height:100vh
+    }
+    .homeBtn{
+    height:90%;
+    }
+    .homeCol{
+        height:31.5vh
+    }
+    .navbar-collapse .nav > .divider-vertical {
+        display: none;
+     }
+    .popup-link {
+        width:100%;
+        text-align:left;
+    }
+    #homepage-app-btns{
+        padding-bottom:$gutterLRG
+    }
+    #horznav a {
+        margin-top:$gutter/1.1 !important
+    }
+    #nav-popup {
+    transform: translateY(-50px);
+    z-index: -1;
+        
+    box-shadow: 0px 2px 10px $darkgrey;
+}
+    #nav-popupWrapper-inner{
+        
+        padding-top:50px;
+        height:250px;
+        background-color:rgba(40,40,40,.9)
+    } 
+}
+
+// 480 ************** Tablet Mini↓
+@media only screen and (max-width:480px){
+.content{
+    min-height:76.3vh;
+}
+.icon-bar {
+    width:15px !important
+}
+    .hide-mini{
+        display:none !important;
+    }
+    #horznav-inner > div.nav-brand.col-xs-12.col-sm-1.text-center > ul > li.hidden-sm.hidden-md.hidden-lg.col-xs-4.text-center.no-padding.mini-logo {
+        width:40% !important
+    }
+    #horznav-inner > div.nav-brand.col-xs-12.col-sm-1.text-center > ul > li:nth-child(1),#horznav-inner > div.nav-brand.col-xs-12.col-sm-1.text-center > ul > li:nth-child(7){
+        width:13.3%
+    }
+    
+}
+    

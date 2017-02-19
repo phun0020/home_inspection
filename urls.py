@@ -35,6 +35,12 @@ urlpatterns = [
     
     # /profile
     url(r'^profile/$', views.profile, name='profile'),
+    
+     # /profile
+    url(r'^payment_info/$', views.paymentInfo, name='paymentInfo'),
+    
+     # /profile
+    url(r'^account_balance/$', views.accountBalance, name='accountBalance'),
    
     # /inspector_start
     # define new report

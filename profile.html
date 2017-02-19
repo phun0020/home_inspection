@@ -1,0 +1,71 @@
+{% extends 'inspection/base.html' %} 
+{% block title %}User Profile{% endblock %} 
+{% block content %}
+    
+    <div class="col col-xs-12 col-sm-8 col-sm-offset-2 text-center">
+        <div class="content">
+          <div id="contractor_form">
+              <h1>User Profile</h1>
+              <hr/>
+          </div>
+                           <div class="col-xs-12 col-sm-5 col-md-4 text-center">
+                {% load staticfiles %}
+                <img src="{% static 'inspection/img/user_image.svg' %}" id="profileImage" alt="">
+                <form class="text-left" action="" method="GET"><!-- TODO FORM & PARTIAL -->
+                    Upload Image:
+                    <btn style="margin-top:5px" class="btn btn-red pull-right inline" type="submit">Upload</btn>
+                    <input type="file" class="float-left">
+                </form>
+                  <ul class="text-left list-group gutter-top">
+                    <div class="col-xs-10 pull-left no-padding"><li class="list-group-item vnav-item"><a href="/profile"><h5>User Details</h5></a>
+                    <hr class="no-margin"></div></li> <!-- JS HIGHLIGHT.ACTIVE -->
+                    <div class="col-xs-10 pull-left no-padding"><li class="list-group-item vnav-item"><a href="/payment_info"><h5>Payment Information</h5></a>
+                        <hr class="no-margin"></div></li><!-- TODO -->
+                    <div class="col-xs-10 pull-left no-padding"><li class="list-group-item vnav-item"><a href="/account_balance"><h5>Bills/Account Balance</h5></a>
+                    <hr class="no-margin"></div></li><!-- TODO -->
+                    <div class="col-xs-10 pull-left no-padding"><li class="list-group-item vnav-item"><a href="/myreports"><h5>Saved Reports</h5></a>
+                    <hr class="no-margin"></div></li><!-- TODO -->
+                  </ul>
+            </div>
+    
+            <form class="text-left" action="" method="POST">{% csrf_token %}
+                <div id="profileInformaiton" class="col col-xs-12 col-sm-8 col-sm-offset-1 col-md-7">
+                      <label for="id_inspectorForm-username">Username:</label>
+                      {{inspectorForm.username}}
+                      <label for="id_inspectorForm-password">Password:</label>
+                      {{inspectorForm.password}}
+                      <label for="id_inspectorForm-phone">Phone:</label>
+                      {{inspectorForm.phone}}
+                      <label for="id_inspectorForm-email">Email:</label>
+                      {{inspectorForm.email}}
+                      <label for="id_inspectorForm-company">Company:</label>
+                      {{inspectorForm.company}}
+                      <label for="id_inspectorForm-description">Description:</label>
+                      {{inspectorForm.description}}
+                      <div class="col-xs-6 no-padding">
+                        <label for="id_inspectorForm-username"><h4>Email Subscription:</h4></label>
+                        {{inspectorForm.subscriptionStatus}}
+                      </div>
+                      <div class="col-xs-6 no-padding">
+                        <label for="id_inspectorForm-username"><h4>Member:</h4></label>
+                        {{inspectorForm.memberStatus}}
+                      </div>
+
+              <div class="col col-xs-12 text-center">
+                 <a href="#"><button class="btn btn-red inline gutter-bottom gutter-top" type="submit" id="newPropBtn">Save</button></a>
+              </div>                
+              </div>
+              </form>
+          
+     
+     
+     
+     
+   
+       
+          
+          
+         
+    </div>
+  </div>
+  {% endblock %}

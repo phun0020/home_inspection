@@ -1,0 +1,49 @@
+{% extends 'inspection/base.html' %}  
+
+{% block content %}
+<div class="content"> 
+  <div class="col col-xs-12 col-sm-10 col-sm-offset-1 text-center"> 
+        <div class='col col-xs-12 col-md-6 col-md-offset-3'>
+      <h2>New Home Inspection Report</h2>  
+      <div class="col-xs-12 text-left">
+        <div class="panel-body" id="prop-form-container">
+           <form id='newPropForm' action="{% url 'inspection:inspector_start' %}" method="POST"> 
+          
+               <h3>Inspector Details</h3>
+               {% csrf_token %}
+               <div id="userDetail" class="text-left">
+        <!-- { --><!--  % include "inspection/partial/dashboard.partialusers.html" % --><!-- } -->
+        <div class="col-xs-10 no-padding">
+              <p id="usernameDetail">{{inspectorForm.username}}</p></div>
+               <div class="col-xs-2 text-right h3 no-padding">
+                <a href="/profile/" class="btn btn-default">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                </a>
+</div>
+        <p class="userDetail">{{inspectorForm.company}}</p>
+      </div>
+       <div id="userDetail2" class="text-right">
+        </div>
+</div>
+                <hr/>
+               <h3>Property Details</h3> 
+               {{ propForm.as_p }}
+
+            <div class="col-xs-12 text-center">
+             <a href="/room.html"><button class="btn btn-default gutter-bottom gutter-top" type="submit" id="newPropBtn">Save &amp; continue</button></a>
+              <button id='resetBtn' type='reset' name='reset' class='btn btn-red'>Clear Form</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script> // convert text input to div
+$('#userDetail').clone().appendTo('#userDetail2');
+    $('#userDetail2 input').replaceWith(function() {
+        return $('<div>' + $(this).val() + '</div>');
+    });
+$('#userDetail').hide()
+</script>
+{% endblock %}

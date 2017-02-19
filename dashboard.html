@@ -1,0 +1,75 @@
+{% extends 'inspection/base.html' %} 
+{% block title %}
+Dashboard
+{% endblock %} 
+{% block content %}
+<div class="content">
+  <div class="col col-xs-12 col-sm-10 col-sm-offset-1 text-center">    
+     <div class='col col-xs-12 col-md-4'>
+      <h2 class="gutter-bottom">New Report</h2>  
+      <div class="col-xs-hidden col-sm-12"><hr/></div>
+      <div class="col-xs-12">
+          <div class="col-xs-6 gutter-top gutter-bottom">
+                      <a href="/inspector_start"><div class="btn btn-red col-xs-12 gutter-bottom title-shadow dashboard-report-btn inspector-app-btn">Home Inspection</div></a>
+          </div>
+          <div class="col-xs-6 gutter-top gutter-bottom">
+                  <a href=""><div class="btn btn-red col-xs-12 gutter-bottom title-shadow dashboard-report-btn agent-app-btn">Agent Report</div></a>
+          </div>
+          <div class="col-xs-6 gutter-top gutter-bottom">
+                  <a href=""><div class="btn btn-red col-xs-12 gutter-bottom title-shadow dashboard-report-btn buyer-app-btn">Buyer Report</div></a>
+          </div>
+          <div class="col-xs-6 gutter-top gutter-bottom">
+                  <a href=""><div class="btn btn-red col-xs-12 gutter-bottom title-shadow dashboard-report-btn owner-app-btn">Owner Report</div></a>
+          </div>
+          
+      </div>    
+      </div>
+        <div class="col-xs-12 hidden-sm hidden-md hidden-lg"><hr/></div>
+    <div class='col col-xs-12 col-md-4'>
+      <h2 class="gutter-bottom">My Reports</h2>
+      <div class="col-xs-hidden col-sm-12"><hr/></div>
+      <div class="col-xs-12 text-left">
+        <ul class="list-group" id="property-container">
+          {% include "inspection/partial/dashboard.partialreports.html" %}
+        </ul>
+      </div>
+    </div>
+    
+        <div class="col-xs-12 hidden-sm hidden-md hidden-lg"><hr/></div>
+    <div class='col col-xs-12 col-md-4'>
+      <h2 class="gutter-bottom">User Information</h2>
+      <div class="col-xs-hidden col-sm-12"><hr/></div>
+
+      <div id="userDetail" class="text-left">
+        <!-- { --><!--  % include "inspection/partial/dashboard.partialusers.html" % --><!-- } -->
+        <div class="col-xs-10 no-padding">
+              <p id="usernameDetail">{{inspectorForm.username}}</p></div>
+               <div class="col-xs-2 pull-right h3">
+                <a href="/profile/" class="btn btn-default">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                </a>
+</div>
+        <p class="userDetail">{{inspectorForm.company}}</p>
+        <p class="userDetail">{{inspectorForm.email}}</p>
+        <p class="userDetail">{{inspectorForm.password}}</p><!-- not reading db -->
+        <p class="userDetail"><span class="glyphicon glyphicon-ok"></span> Newsletter Subscription</p><!-- create db field -->
+        <p class="userDetail"><span class="glyphicon glyphicon-ok"></span> Other Setting</p><!-- create db field -->
+      </div>
+       <div id="userDetail2" class="text-left">
+        </div>
+</div>
+   <div class="col-xs-12 text-center gutter-top-lg gutter-bottom">
+                <button class="btn btn-red" id="logout">
+                    <span class="glyphicon glyphicon-log-out"><h4 class="inline"> Logout</h4></span>
+                </button>
+    </div>
+  </div>
+</div>
+<script> // convert text input to div
+$('#userDetail').clone().appendTo('#userDetail2');
+    $('#userDetail2 input').replaceWith(function() {
+        return $('<div>' + $(this).val() + '</div>');
+    });
+$('#userDetail').hide()
+</script>
+{% endblock %}

@@ -1,0 +1,27 @@
+    {% if property.room_set.all %}
+<ul class="list-group">
+    {% for room in property.room_set.all %}
+    <li class="list-group-item">
+        <div class="row">
+            <div class="col col-xs-9 col-md-7 col-md-offset-2">
+                <a href='#' class="xeditable-text" 
+                data-pk="{{room.id}}" 
+                data-name="roomName" 
+                data-url="{{request.path}}"
+                data-title="room's name">{{room.roomName}}</a>
+            </div>
+            <div class="col col-xs-3 col-md-1 text-right">
+                <a href="{{request.path}}{{room.id}}" class="btn btn-default">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                </a>
+                <button data-url="{% url 'inspection:deleteRoom' property.id room.id %}" class="btn btn-red deleteRoom">
+                    <span class="glyphicon glyphicon-trash"></i>
+                </button>
+            </div>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<h3>Currently, you don't have any room</h3>
+{% endif %}

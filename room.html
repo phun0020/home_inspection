@@ -1,0 +1,112 @@
+{% extends 'inspection/base.html '%}
+{% block title %}Room{% endblock %}
+
+{% block content %}
+
+{% comment %}only show this one if logged in{% endcomment %}
+<div class="content">
+    <div class="col col-xs-12 col-sm-8 col-sm-offset-2">
+             <div id="selectedRooms" class="col-xs-8 col-xs-offset-2">
+              <table class='table table-hover'>
+                <thead>
+                  <tr>
+                    <td class="page-header" colspan="2">
+                        <h2 class="inline">Property Information:</h2>
+                         <a href="inspect_room.html" class="inline pull-right" id="edit-property"><span class="glyphicon glyphicon-pencil"><span class="hidden-xs">edit</span></span></a>
+                      </td>
+                  </tr>
+                </thead>
+                <tbody id='resultsBody'>
+                  <tr>
+                      <td>
+                          <label for='propertyAddress' class="label pull-left" id='propertyAddressLabel'>Property Address</label>
+                          <input type="text" id="propertyAddress" name="propertyAddress" class="form-control box-shadow" placeholder="132 example street" value="{{property}}"> 
+                              <!-- property address should auto populate-->
+                              
+                          <label for='porpertyType' class="label pull-left" id='porpertyTypeLabel'>Property Type</label>
+                          <input type="text" id="propertyType" name="propertyType" class="form-control box-shadow" value="{{ property.propertyTypeId }}" placeholder="create dropdown + input">
+                          <label for='buildingType' class="label pull-left" id='buildingTypeLabel'>Building Type</label>
+                          <input type="text" id="buildingType" name="buildingType" class="form-control box-shadow" value="{{ property.buildingTypeId }}" placeholder="create dropdown + input">
+                          <label for='projectNo' class="label pull-left" id='projectNoLabel'>Project Number</label>
+                          <input type="text" id="projectNo" name="projectNo" class="form-control box-shadow" value="{{property.id}}.{{ property.projectNum }}" placeholder="auto-populate date-user">
+                          
+                      </td>
+                    </tr>                  
+                </tbody>
+             </table>
+          </div>   
+          
+    <!--if have images, will take a lot of spaces in mobile-->
+    <form action="{{request.path}}" method="POST" id="hidden-room-form">
+        {% csrf_token %}
+        <input type="text" name="propertyId" value="{{property.id}}" class="hidden">
+        {% for type in roomType %}
+        <div class="col col-xs-12 col-md-4">
+            <input type="radio" name="roomType" value="{{type.id}}" class="hidden">
+            <input type="radio" name="roomName" value="{{type.roomTypeName}}" class="hidden">
+            <button class="btn btn-red btn-block room-type-btn">
+                <i class="fa fa-plus" aria-hidden="true"></i> {{type.roomTypeName}}
+            </button>
+        </div>
+        {% endfor %}
+    </form>
+    
+</div>
+
+
+<!--    <div id="contractor_form">
+      <form name="profile" method='get'>
+<div class="col-xs-12 text-left"><h4 class="col-xs-12 page-header">Click to Add Rooms:</h4></div>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+          <div id="dngRm" class="btn roomSelect thumbnail">
+              <div class="color-overlay"></div>
+            <h3 class="roomTitle">Dinning Room</h3>
+          </div>
+        </div><div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+          <div id="lvngRm" class="btn roomSelect thumbnail">
+              <div class="color-overlay"></div>
+            <h3 class="roomTitle">Living Room</h3>
+          </div>
+        </div>
+        
+        <div class="col col-xs-12 text-left">
+          <div id="selectedRooms" class="col-xs-8 col-xs-offset-2">
+              <table class='table table-hover'>
+                <thead>
+                  <tr>
+                    <td class="page-header" colspan="2">
+                        <h4>Report Summary:</h4>
+                    </td>
+                  </tr>
+                </thead>
+                <tbody id='resultsBody'>
+                  <tr>
+                      <td>
+                        <div class="input-group add-on">
+                            <label for="lname" class="label" id="lnameLabel">Dinning Room<span id="lnameAlert" class="label label-danger"></span></label>
+                            <input type="text" name="roomName" class="form-control" value="Dinning Room 1" onfocus="if(this.value=='Dinning Room 1'){this.value='';}" onblur="if(this.value==''){this.value='Dinning Room 1';}" aria-describedby="basic-addon2">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-red" type="submit"><i class="glyphicon glyphicon-arrow-right"></i></button>
+                                </div>                                
+                        </div>
+                      </td>
+                  </tr>
+                  
+                </tbody>
+                <tfoot>  
+                  <tr><td class="text-center" colspan='2'>
+                     <br/>
+                    <a href="inspector.html" id='submitBtn' type='submit' name='submit' class='btn btn-red box-shadow'>Back to Property Info</a>
+                      <button id='resetBtn' type='reset' name='reset' class='btn btn-red box-shadow'>Clear Selected</button>
+                      <a href="cgi-results.py" class='btn btn-default box-shadow'>View Report</a>
+                  </td></tr>
+                </tfoot>
+             </table>
+          </div>
+          -->      
+
+    <div class="col-xs-8 col-xs-offset-2" id="room-container">   
+            {% include "inspection/partial/room.partial.html" %}
+    </div>
+</div>
+{% endblock %}

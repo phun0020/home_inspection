@@ -33,6 +33,16 @@ def articles(request):
     return render(request, 'inspection/articles.html')
 ##### end of ARTICLES region ######
 
+##### PAYMENT region ######
+def paymentInfo(request):
+    return render(request, 'inspection/payment_info.html')
+##### end of ARTICLES region ######
+
+##### ARTICLES region ######
+def accountBalance(request):
+    return render(request, 'inspection/account_balance.html')
+##### end of ARTICLES region ######
+
 ##### PROFILE region ######
 def profile(request):
     # get all needed data: properties, buildingType, propType

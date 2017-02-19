@@ -1,0 +1,49 @@
+{% extends 'inspection/base.html' %}
+{% block title %}Contact Us{% endblock %}
+
+
+{% block content %}
+<div class="content">
+  <div class="col col-xs-12 col-sm-10 col-sm-offset-1 text-center">
+    <div class="col-xs-12 text-center"><h2>Contact Form</h2>
+    </div>
+      <div class="col-xs-hidden col-sm-4 col-sm-offset-4"><hr/></div>
+       <div class="col col-xs-12 col-sm-4 col-sm-offset-4">
+        
+      <form name="contact" method='post' action='cgi-form.py'>
+
+        <label for='userName' class="label pull-left" id='fnameLabel'>Your Name</label>
+        <input type="text" id="userName" name="userName" class="form-control box-shadow" placeholder="First Lastname">
+
+        <label for='lname' class="label pull-left" id='emailLabel'>Email Address</label>
+        <input type="email" id="email" name="email" class="form-control box-shadow" placeholder="email@domain.com">
+
+        <label for='userPhone' class="label pull-left" id='userPhoneLabel'>Phone Number</label>
+        <input type="text" id="userPhone" name="userPhone" class="form-control box-shadow" placeholder="(613)555-1234">
+        
+        <label for='userAddress' class="label pull-left" id='userAddressLabel'>Address</label>
+        <input type="text" id="userAddress" name="userAddress" class="form-control box-shadow" placeholder="123 Main St. Ottawa, On">
+        
+        <label for='userWebsite' class="label pull-left" id='userWebsiteLabel'>Domain or Website</label>
+        <input type="text" id="userWebsite" name="userWebsite" class="form-control box-shadow" placeholder="mysite.com">
+        
+        <label for='userProject' class="label pull-left" id='userProjectLabel'>Project Description</label>
+          <textarea id="userProject" name="userProject" class="form-control box-shadow" form="contact" rows="2" placeholder="Please describe your project"></textarea>
+          
+        <label for='userEmailBody' class="label pull-left" id='userEmailBodyLabel'>Comment</label>
+          <textarea id="userEmailBody" name="userEmailBody" class="form-control box-shadow" form="contact" rows="6" placeholder="Please let us know how we can help you"></textarea>
+        
+        <br/>
+<div class="col-xs-12">
+        <button id='submitBtn' type='submit' name='submit' class='inline btn btn-red col-xs-4 col-xs-offset-4'>Send</button>
+        </div>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+      </form>
+        </div>
+</div>
+</div>
+{% endblock %}
