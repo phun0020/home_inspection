@@ -1,18 +1,22 @@
 {% extends 'inspection/base.html' %}
-{% block title %}Index{% endblock %}
-
-
+{% block title %}Saved Reports{% endblock %}
 {% block content %}
-   <div class="content">
-    <div class="col col-xs-12 col-sm-6 col-sm-offset-3">
-         <h2>Logged Reports</h2>
-              <div class="col-xs-12 text-left">
-            <ul class="list-group" id="property-container">
-                {% include "inspection/partial/dashboard.partialreports.html" %}
-            </ul>
-            
-        </div>
-      </div>
+<div class="col col-xs-12 col-sm-8 col-sm-offset-2 text-center">
+  <div class="content">
+   <!-- ARTICLE TITLE -->
+    <h2>Logged Reports</h2>
+    <hr/>
+    <!-- /ARTICLE TITLE -->
+    
+    <!-- CONTENT AREA -->
+    <div class="col-xs-12 text-left">
+      <ul class="list-group" id="property-container">
+        {% include "inspection/partial/dashboard.partialreports.html" %}
+      </ul>
     </div>
+    <!-- /CONTENT AREA -->
+    
+  </div>
 </div>
+
 {% endblock %}

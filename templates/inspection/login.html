@@ -1,14 +1,17 @@
 {% extends 'inspection/base.html' %}
-{% block title %}Index{% endblock %}
-
-
+{% block title %}Login{% endblock %}
 {% block content %}
 <div class="content">
   <div class="col col-xs-12 col-sm-10 col-sm-offset-1 text-center">
     <div id="contractor_form">
+     
+      <!-- ARTICLE TITLE -->
       <h1>Login</h1>
       <div class="col-xs-hidden col-sm-4 col-sm-offset-4"><hr/></div>
-      <form id="inputTable" name="profile" method='get' class="col-xs-4 col-xs-offset-4">
+      <!-- /ARTICLE TITLE -->
+       
+       <!-- CONTENT -->
+       <form id="inputTable" name="profile" method='get' class="col col-xs-12 col-sm-4 col-sm-offset-4">
         <label for='usrname' class="label pull-left" id='usrnameLabel'>User Name</label>
         <input type="text" id="usrname" name="usrname" class="form-control box-shadow" placeholder="Please enter your user name">
         <label for='password' class="label pull-left" id='passwordLabel'>Password</label>
@@ -17,8 +20,9 @@
         <button id='submitBtn' type='submit' name='submit' class='btn btn-red'>Submit</button>
         <a href="/register" name='register' class='btn btn-red'>Register</a>
       </form>
+      <!-- /CONTENT -->
+
     </div>
   </div>
-  <script src="scripts/validate.js"></script>
 </div>
 {% endblock %}

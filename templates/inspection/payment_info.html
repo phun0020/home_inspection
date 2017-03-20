@@ -1,0 +1,82 @@
+{% extends 'inspection/base.html' %} 
+{% block title %}Payment Info{% endblock %} 
+{% block content %}
+<div class="col col-xs-12 col-sm-8 col-sm-offset-2 text-center">
+  <div class="content">
+    <!-- LEFT NAV -->
+    <div class="col-xs-12 col-sm-5 col-md-4 text-center">
+      <ul class="text-left list-group gutter-top">
+        <div class="col-xs-10 pull-left no-padding">
+          <li class="list-group-item vnav-item"><a href="/profile"><h5>User Details</h5></a>
+            <hr class="no-margin">
+          </li>
+        </div>
+        <div class="col-xs-10 pull-left no-padding">
+          <li class="list-group-item vnav-item"><a href="/payment_info"><h5>Payment Information</h5></a>
+            <hr class="no-margin">
+          </li>
+        </div>
+        <div class="col-xs-10 pull-left no-padding">
+          <li class="list-group-item vnav-item"><a href="/account_balance"><h5>Bills/Account Balance</h5></a>
+            <hr class="no-margin">
+
+          </li>
+        </div>
+        <div class="col-xs-10 pull-left no-padding">
+          <li class="list-group-item vnav-item"><a href="/myreports"><h5>Saved Reports</h5></a>
+            <hr class="no-margin">
+          </li>
+        </div>
+      </ul>
+    </div>
+    <!-- /LEFT NAV -->
+
+
+    <!-- CONTENT AREA -->
+    <div class="col col-xs-12 col-sm-8 col-sm-offset-1 col-md-7">
+      <h2 class="text-left">Payment Information</h2>
+      <hr>
+      <form class="text-left" action="" method="POST">
+        <label class="col-xs-12" for="id_paymentForm-method">Payment Method:</label>
+        {{ paymentForm.method }}
+        <br/>
+        <label id="ccarHolderLabel" for="id_paymentForm-ccardHolder">Card Holder Name:</label>
+        {{ paymentForm.ccardHolder }}
+
+        <div class="col-xs-8 no-padding text-left">
+          <label for="id_paymentForm-ccardNumber1">Credit Card Number:</label>
+          <div class="col-xs-12 no-padding text-left">
+            {{ paymentForm.ccardNumber1 }} {{ paymentForm.ccardNumber2 }} {{ paymentForm.ccardNumber3 }} {{ paymentForm.ccardNumber4 }}
+          </div>
+        </div>
+        <div class="col-xs-4 no-padding text-left">
+          <label for="id_paymentForm-ccardSecurity">Security Code:</label>
+          <div class="col-xs-12 no-padding text-left">
+            {{ paymentForm.ccardSecurity }}
+          </div>
+        </div>
+
+        <div class="col-xs-8 no-padding text-left">
+          <label for="id_paymentForm-ccardExpDateMth">Expiry Month:</label>
+          <div class="col-xs-12 no-padding gutter-right text-left">
+            {{ paymentForm.ccardExpDateMth }}
+          </div>
+        </div>
+        <div class="col-xs-4 no-padding text-left">
+          <label for="id_paymentForm-ccardExpDateMth">Expiry Year:</label>
+          <div class="col-xs-12 no-padding text-left">
+            {{ paymentForm.ccardExpDateYr }}
+          </div>
+        </div>
+        <div class="col col-xs-12 col-sm-6 col-md-7">
+          <a href="#">
+            <button class="btn btn-red pull-right inline gutter-bottom gutter-top" type="submit" id="newPropBtn">Save</button>
+          </a>
+        </div>
+      </form>
+    </div>
+    <!-- CONTENT AREA -->
+  </div>
+</div>
+
+{% endblock %}

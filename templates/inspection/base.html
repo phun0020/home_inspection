@@ -1,142 +1,149 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
-<head>
-    <!-- page information -->
-        <title>Iron Lantern Inspections</title>    
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <meta name="Description" content="A complete home inspection check list for professional home inpectors and new home buyers." />
-        <meta name="Keywords" content="" />
-        <meta name="robots" content="index,follow" />
-        <meta name="GOOGLEBOT" content="INDEX, FOLLOW" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="alexaVerifyID" content="8TYgG16pQTW2pnPAEH8l1FgBfOI" />
-    {% load staticfiles %}    
-    <!-- plug-in css -->
-        <!-- favicon -->
-        <link rel="icon" href='{% static "inspection/img/favicon.png" %}' type="image/x-icon"/>
-        <!-- template.css -->
-        <link rel='stylesheet' type='text/css' href='{% static "inspection/css/template.css" %}'/>
-        <!-- bootstrap -->
-        <link rel='stylesheet' type='text/css' href='{% static "inspection/css/bootstrap.min.css" %}'/>
-        <link rel="stylesheet" type='text/css' href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css">
-        <!-- google fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab" rel="stylesheet"/>
-    <!-- plug-in js -->
-        <!-- jQuery -->
-        <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-        <!-- bootstrap -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous" defer="defer"></script>
-        <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js" defer="defer"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js" defer="defer"></script>
-        <script src='{% static "inspection/js/crsftoken.js" %}' type="text/javascript" defer="defer"></script>  
-        <!-- js by page -->
-        <script src='{% static "inspection/js/index.js" %}' type="text/javascript" defer="defer"></script>
-        <script src='{% static "inspection/js/room.js" %}' type="text/javascript" defer="defer"></script>
-        <script src='{% static "inspection/js/main.js" %}' type="text/javascript" defer="defer"></script>
-</head>
-<body>
-   
-<!-- HEADER -->
- <div id="includeHead" class="col-xs-12 no-padding">
-  <div class='hidden-xs col-sm-1 no-padding topbar-bg'></div>
-   <!-- LOGO -->
-    <div id="header-logo-wrap" class="hidden-xs col-sm-2 col-md-2 text-left no-padding">
+
+  <head>
+    <title>Iron Lantern Inspections</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="Description" content="A complete home inspection check list for professional home inpectors and new home buyers." />
+    <meta name="Keywords" content="" />
+    <meta name="robots" content="index,follow" />
+    <meta name="GOOGLEBOT" content="INDEX, FOLLOW" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="alexaVerifyID" content="8TYgG16pQTW2pnPAEH8l1FgBfOI" /> {% load staticfiles %}
+    <link rel="icon" href='{% static "inspection/img/favicon.png" %}' type="image/x-icon" />
+    <link rel='stylesheet' type='text/css' href='{% static "inspection/css/template.css" %}' />
+    <link rel='stylesheet' type='text/css' href='{% static "inspection/css/bootstrap.min.css" %}' />
+    <link rel="stylesheet" type='text/css' href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous" defer="defer"></script>
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js" defer="defer"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js" defer="defer"></script>
+    <script src='{% static "inspection/js/crsftoken.js" %}' type="text/javascript" defer="defer"></script>
+    <script src='{% static "inspection/js/index.js" %}' type="text/javascript" defer="defer"></script>
+    <script src='{% static "inspection/js/room.js" %}' type="text/javascript" defer="defer"></script>
+    <script src='{% static "inspection/js/main.js" %}' type="text/javascript" defer="defer"></script>
+  </head>
+
+  <body>
+
+    <!------------------------------------------------------- HEADER ------------------------------------------------------->
+    <div id="includeHead" class="col-xs-12 no-padding">
+      <div class='hidden-xs col-sm-1 no-padding topbar-bg'></div>
+      <!-- LOGO -->
+      <div id="header-logo-wrap" class="hidden-xs col-sm-2 col-md-2 text-left no-padding">
         <a href="/">
-            <div id="header-logo"></div>
+          <div id="header-logo"></div>
         </a>
-    </div>
-    <!-- NAVBAR -->
-    <div id="horznav-wrap" class="col-sm-8 no-padding topbar-bg-lrg">
+      </div>
+      <!-- /LOGO -->
+      <!-- NAVBAR -->
+      <div id="horznav-wrap" class="col-sm-8 no-padding topbar-bg-lrg">
         <nav id="horznav" class="col-xs-12 pull-right">
-         
-         <div id="horznav-inner" class="col-xs-12 pull-right">
-         <!-- # HOME / HAMBURGER -->
+          <div id="horznav-inner" class="col-xs-12 pull-right">
+            <!-- # HAMBURGER -->
             <div class="nav-brand col-xs-12 col-sm-1 text-center pull-right">
-                <ul class="home-tab nav nav-tabs minitab">
-                    <li class="col-xs-1 no-padding hidden-sm-up topbar-space"></li>
-                    
-                    <li id="widescreen-home" class="col-xs-2 nav nav-tabs minitab topbar-space hidden-sm hidden-md hidden-lg"><a href="/"><span class="glyphicon glyphicon-home"></span></a></li>
-                    <li class="col-xs-1 no-padding hidden-sm hidden-md hidden-lg topbar-space hide-mini"></li>
-                    <li class="hidden-sm hidden-md hidden-lg col-xs-4 text-center no-padding mini-logo"><a id="logo-tab" href="/"></a></li>
-                    <li class="col-xs-1 no-padding hidden-sm hidden-md hidden-lg topbar-space hide-mini"></li>
-                    <li class="col-xs-2 hidden-sm hidden-md hidden-lg nav nav-tabs minitab topbar-space">
-                     <div class="navbar-default">
-                      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-popup" aria-expanded="false" aria-controls="nav-popup">
-                          <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span>
-                          <span class="icon-bar"></span>
-                          <span class="icon-bar"></span>
-                      </button>
-                      </div>
-                  </li>
-                    <li class="col-xs-1 no-padding hidden-sm hidden-md hidden-lg topbar-space"></li>
-                </ul>
+              <ul class="home-tab nav nav-tabs minitab">
+                <li class="col-xs-1 no-padding hidden-sm-up topbar-space"></li>
+                <li id="widescreen-home" class="col-xs-2 nav nav-tabs minitab topbar-space hidden-sm hidden-md hidden-lg">
+                    <a href="/"><span class="glyphicon glyphicon-home"></span></a></li>
+                <li class="col-xs-1 no-padding hidden-sm hidden-md hidden-lg topbar-space hide-mini"></li>
+                <li class="hidden-sm hidden-md hidden-lg col-xs-4 text-center no-padding mini-logo">
+                  <a id="logo-tab" href="/"></a></li>
+                <li class="col-xs-1 no-padding hidden-sm hidden-md hidden-lg topbar-space hide-mini"></li>
+                <li class="col-xs-2 hidden-sm hidden-md hidden-lg nav nav-tabs minitab topbar-space">
+                  <div class="navbar-default">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-popup" aria-expanded="false" aria-controls="nav-popup">
+                      <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                    </button>
+                  </div>
+                </li>
+                <li class="col-xs-1 no-padding hidden-sm hidden-md hidden-lg topbar-space"></li>
+              </ul>
             </div>
+            <!-- /HAMBURGER -->
             <!-- # NAVBAR MENU+POPUP -->
-            <div id="nav-popup" class="navbar-collapse collapse col-xs-12 col-sm-12 pull-right" aria-expanded="false">        
-                <ul id="nav-popupWrapper-inner" class="nav nav-tabs text-center">
-                  
-                    
-                    <li class="hidden-xs hidden-sm"><a href="/"><span class="glyphicon glyphicon-home"></span></a></li>
-                   <li class="divider-vertical hidden-sm"></li>
-                   
-                   <li class="popup-link" role="presentation"><a href="/about"><div class="h4 inline">About</div></a></li>
-                   <li class="divider-vertical"></li>
-                   <li class="popup-link" role="presentation"><a href="/dashboard"><div class="h4 inline">User Dashboard</div></a></li>
-                   
-                   <li class="hidden-xs divider-vertical"></li>
-                   <li class="popup-link" role="presentation"><a href="/login"><div class="h4 inline">Login</div></a></li> 
-                   <!-- ### should go to login.html if not logged in ### -->
-                   <!-- ### should switch to "logout" if logged in ### -->
-               </ul>
+            <div id="nav-popup" class="navbar-collapse collapse col-xs-12 col-sm-12 pull-right" aria-expanded="false">
+              <ul id="nav-popupWrapper-inner" class="nav nav-tabs text-center">
+
+
+                <li class="hidden-xs hidden-sm"><a href="/"><span class="glyphicon glyphicon-home"></span></a></li>
+                <li class="divider-vertical hidden-sm"></li>
+                <li class="popup-link" role="presentation">
+                  <a href="/about">
+                    <div class="h4 inline">About</div>
+                  </a>
+                </li>
+                <li class="divider-vertical"></li>
+                <li class="popup-link" role="presentation">
+                  <a href="/dashboard">
+                    <div class="h4 inline">User Dashboard</div>
+                  </a>
+                </li>
+                <li class="hidden-xs divider-vertical"></li>
+                <li class="popup-link" role="presentation">
+                  <a href="/login">
+                    <div class="h4 inline">Login</div><!-- ### should go to login.html if not logged in ### should switch to "logout" if logged in ### -->
+                  </a>
+                </li>
+              </ul>
             </div>
-        </div>
-    </nav>
+            <!-- /NAVBAR MENU+POPUP -->
+          </div>
+        </nav>
+      </div>
+      <!-- /NAVBAR -->
+      <div class="hidden-xs col-sm-1 topbar-bg pull-right"></div>
     </div>
-    <div class="hidden-xs col-sm-1 topbar-bg pull-right"></div>
-</div>
-<!-- CONTENT -->
+    <!-- /HEADER -->
+    
+    <!------------------------------------------------------- CONTENT AREA ------------------------------------------------------->
     <div id="includeMain" class="col-xs-12">
-            {% block content %}
-            {% endblock%}
-            
-            {% block test %}
-            {% endblock %}
+      {% block content %} {% endblock%} {% block test %} {% endblock %}
     </div>
-
-<!-- FOOTER -->
- <footer class="col-xs-12 text-center">
-    <div class="col-xs-10 col-xs-offset-1">
-         <div class="hidden-xs col-sm-4">
-                    <h4 class="highlights col-xs-8 col-xs-offset-2"><strong>Iron Lantern Inspection</strong></h4>
-            <ul class="col-xs-12 list-group">
-                <li class="list-group-item"><a href="/about">About Us</a></li>
-                <li class="list-group-item"><a href="/contact">Contact Us</a></li>
-            </ul>
+    <!-- /COTNENT AREA -->
+    
+    <!------------------------------------------------------- FOOTER ------------------------------------------------------->
+    <footer class="col-xs-12 text-center">
+     
+      <!-- FOOTER MENU -->
+      <div class="col-xs-10 col-xs-offset-1">
+        <div class="hidden-xs col-sm-4">
+          <h4 class="highlights col-xs-8 col-xs-offset-2"><strong>Iron Lantern Inspection</strong></h4>
+          <ul class="col-xs-12 list-group">
+            <li class="list-group-item"><a href="/about">About Us</a></li>
+            <li class="list-group-item"><a href="/contact">Contact Us</a></li>
+          </ul>
         </div>
         <div class="hidden-xs col-sm-4">
-                    <h4 class="highlights col-xs-8 col-xs-offset-2"><strong>Members</strong>&nbsp;&nbsp;&nbsp;</h4>
-            <ul class="col-xs-12 list-group">
-                <li class="list-group-item"><a href="/login">Login/Register</a></li>
-                <li class="list-group-item"><a href="/myreports">Reports</a></li>
-            </ul>
+          <h4 class="highlights col-xs-8 col-xs-offset-2"><strong>Members</strong>&nbsp;&nbsp;&nbsp;</h4>
+          <ul class="col-xs-12 list-group">
+            <li class="list-group-item"><a href="/login">Login/Register</a></li>
+            <li class="list-group-item"><a href="/myreports">Reports</a></li>
+          </ul>
         </div>
         <div class="hidden-xs col-sm-4">
-                    <h4 class="highlights col-xs-8 col-xs-offset-2"><strong>Technical<span class="hidden-lg"> Info</span><span class="hidden-xs hidden-sm hidden-md"> Information</strong>&nbsp;&nbsp;&nbsp;</span></h4>
-            <ul class="col-xs-12 list-group">
-                <li class="list-group-item"><a href="/technical_articles">Technical Articles</a></li>
-                <li class="list-group-item"><a href="/terms_conditions">Terms &amp; Conditions</a></li>
-            </ul>
+          <h4 class="highlights col-xs-8 col-xs-offset-2">
+          <strong>Technical<span class="hidden-lg"> Info</span><span class="hidden-xs hidden-sm hidden-md"> Information&nbsp;&nbsp;&nbsp;</span></strong></h4>
+          <ul class="col-xs-12 list-group">
+            <li class="list-group-item"><a href="/technical_articles">Technical Articles</a></li>
+            <li class="list-group-item"><a href="/terms_conditions">Terms &amp; Conditions</a></li>
+          </ul>
         </div>
+      </div>
+      <!-- /FOOTER MENU -->
+      <!-- COPYRIGHT -->
+      <div id="copyright" class="col-xs-12 text-center">
+        <div id="copyright-img">
+          <img id="copyright-logo" src="/static/inspection/img/lantern.png" alt="JDD Logo">Copyright &copy; 2016 JDD Home Inspection Ltd.<span class="hidden-xs"> All Rights Reserved.</span></div>
+      </div>
+      <!-- /COPYRIGHT -->
+    </footer>
+    <!-- /FOOTER -->
+
     </div>
-<div id="copyright" class="col-xs-12 text-center">
-    <div id="copyright-img">
-        <img id="copyright-logo" src="/static/inspection/img/lantern.png" alt="JDD Logo">Copyright &copy; 2016 JDD Home Inspection Ltd.<span class="hidden-xs"> All Rights Reserved.</div></span>
-    </div>
-</footer>
+  </body>
 
-
-
-        
-</div>
-</body>
 </html>

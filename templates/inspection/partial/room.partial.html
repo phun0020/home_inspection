@@ -1,4 +1,4 @@
-    {% if property.room_set.all %}
+{% if property.room_set.all %}
 <ul class="list-group">
     {% for room in property.room_set.all %}
     <li class="list-group-item">
@@ -15,7 +15,7 @@
                     <span class="glyphicon glyphicon-pencil"></span>
                 </a>
                 <button data-url="{% url 'inspection:deleteRoom' property.id room.id %}" class="btn btn-red deleteRoom">
-                    <span class="glyphicon glyphicon-trash"></i>
+                    <span class="glyphicon glyphicon-trash"></span>
                 </button>
             </div>
         </div>

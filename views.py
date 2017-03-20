@@ -1,141 +1,91 @@
 from django.core import serializers
 from django.http import HttpResponseRedirect, JsonResponse, HttpResponse
 from django.shortcuts import render, get_list_or_404, get_object_or_404
-from .models import User, Property, Room, RoomType, BuildingType, PropertyType #Inspector, Owner,
+from .models import Inspector, Property, Room, RoomType, BuildingType, PropertyType #Inspector, Owner,
 from .forms import PropertyForm, UserForm, PaymentForm
 from .service import isXeditableCallRequest, updateWithXeditable
 import json
 
-## ----- Simple pages - post content ----- ##
+
 
 ##### HOME region ######
 def index(request):
     return render(request, 'index.html')
 ##### end of HOME region ######
 
-##### ABOUT region ######
-def about(request):
-    return render(request, 'inspection/about.html')
-##### end of ABOUT region ######
-
-##### CONTACT region ######
-def contact(request):
-    return render(request, 'inspection/contact.html')
-##### end of CONTACT region ######
-
-##### TERMS region ######
-def terms(request):
-    return render(request, 'inspection/terms.html')
-##### end of TERMS region ######
-
-##### ARTICLES region ######
-def articles(request):
-    return render(request, 'inspection/articles.html')
-##### end of ARTICLES region ######
-
-##### PAYMENT region ######
-def paymentInfo(request):
-    return render(request, 'inspection/payment_info.html')
-##### end of ARTICLES region ######
-
-##### ARTICLES region ######
-def accountBalance(request):
-    return render(request, 'inspection/account_balance.html')
-##### end of ARTICLES region ######
-
-##### PROFILE region ######
-def profile(request):
-    # get all needed data: properties, buildingType, propType
-    allProperties = get_list_or_404(Property.objects.order_by('-id'), isDelete = False)
-      
-    inspectorForm = UserForm(prefix="inspectorForm")
-    paymentForm = PaymentForm(prefix="paymentForm")
-    
-        
-    if request.method == 'POST':
-        #-----add new property-----
-        inspectorForm = UserForm(request.POST, prefix = 'inspectorForm')
-        paymentForm = PropertyForm(request.POST, prefix = 'paymentForm')
-        
-        
-        if inspectorForm.is_valid(): # and paymentForm.is_valid():
-            inspectorForm.save()
-        #    paymentForm.save()              -- ValueError: The property could not be created because the data didn't validate
-        else:
-            return HttpResponse('<h1>Something is not right...</h1>')
-    
-    
-    # render normal page if doesn't receive any request
-    return render(request, 'inspection/profile.html', {
-        'inspectorForm' : inspectorForm,
-        'paymentForm' : paymentForm,
-    })
-    ##### end of PROFILE region ######
-
-##### REPORTS region ######----- NOT READING DB...
-def reports(request):
-    return render(request, 'inspection/user_reports.html')
-##### end of REPORTS region ######
 
 
-## ----- Form Pages - read, write, delete entries ----- ##
-
-##### LOGIN region ######
+### NAVBAR LINKS ###
+## LOGIN
 def login(request):
     return render(request, 'inspection/login.html')
-##### end of LOGIN region ######
-
-##### REGISTER region ######
+## REGISTER
 def register(request):
     return render(request, 'inspection/register.html')
-##### end of REGISTER region ######
-
-
-##### DASHBOARD region ######
+## DASHBOARD
 def dashboard(request):
-
-    
     # get all needed data: properties, buildingType, propType
     allProperties = get_list_or_404(Property.objects.order_by('-id'), isDelete = False)
-    
     # list of propType and BuildType for Xeditable's source
     propTypeList = [ob.as_json() for ob in PropertyType.objects.all()]
     buildTypeList = [ob.as_json() for ob in BuildingType.objects.all()]
-
-    # form
+    # forms
     propForm = PropertyForm(prefix="propFrom")
-    inspectorForm = UserForm(prefix="inspectorForm")
-    
+    users = get_list_or_404(Inspector.objects.order_by('-id'))
     # render normal page if doesn't receive any request
     return render(request, 'inspection/dashboard.html', {
         'allProperties' : allProperties,
         'propForm' : propForm,
-        'inspectorForm' : inspectorForm,
+        'users' : users,
         'propTypeList' : propTypeList,
         'buildTypeList' : buildTypeList
     })
+### /NAVBAR LINKS ###
 
-def deleteProp(request, property_id):
-    # change the selected property to True
-    
+
+
+### USER PROFILE ###
+## PROFILE
+def profile(request):
+    users = get_list_or_404(Inspector.objects.order_by('-id'))
+    userForm = UserForm(request.POST, prefix="userForm")
     if request.method == 'POST':
-        selectedProp = get_object_or_404(Property, id=property_id)
-        selectedProp.delete()
-
-    allProperties = get_list_or_404(Property.objects.order_by('-id'))
-    
-    return render(request, 'inspection/partial/dashboard.partialreports.html', {
-        'allProperties' : allProperties
+        if userForm.is_valid():# and paymentForm.is_valid():              -- PAYMENT FORM NOT VALIDATING
+            userForm.save()
+            #    paymentForm.save()                                       -- ValueError: The property could not be created because the data didn't validate
+        else:
+            return HttpResponse('''
+            <h1>Something is not right...</h1>
+            <p>invalid submit = return alternative http; page not displaying</p><br/>
+            <p>?currently not pulling db values so form is blank</p>
+            ''')
+    # render normal page if doesn't receive any request
+    return render(request, 'inspection/profile.html', {
+        'users' : users,
+        'userForm' : userForm,
+        #'paymentForm' : paymentForm,                                     -- COMMENT OUT PAYMENT FORM SO AVIOD ERROR FOR NOW
     })
+## PAYMENT_INFO
+def paymentInfo(request):
+    return render(request, 'inspection/payment_info.html')
+## ACCOUNT_BALANCE
+def accountBalance(request):
+    return render(request, 'inspection/account_balance.html')
+## MY_REPORTS 
+def reports(request):
+    return render(request, 'inspection/user_reports.html')
+### /USER PROFILE ###
 
-##### end of DASHBOARD region ######
 
 
-##### REPORT_START region ######
+### REPORT PAGES ###
+
+
+## INSPECTOR_START 
 def inspector_start(request):
     # get all needed data: properties, buildingType, propType
     allProperties = get_list_or_404(Property.objects.order_by('-id'), isDelete = False)
-        
+    #users = get_object_or_404(Inspector, id = Property.objects.order_by('-id')) # NO INSPECTOR MATCHES QUERY
         
     
     # list of propType and BuildType for Xeditable's source
@@ -157,7 +107,7 @@ def inspector_start(request):
 
             # update the allProperties, can't use the one above
             allProperties = get_list_or_404(Property.objects.order_by('-id'), isDelete = False)
-            property = get_object_or_404(Property, id = property_id)
+            #property = get_object_or_404(Property, id = property_id)
             
             return render(request, 'inspection/room.html', {
                 'allProperties' : allProperties,
@@ -171,12 +121,12 @@ def inspector_start(request):
         #-----change property attributes-----
         if isXeditableCallRequest(request):
             reqClass = request.POST.get('class')
-            # decision denpend on params class : inspector or Property
+            # decision depend on params class : inspector or Property
             
             # TODO really need to refactor this xeditable after come back -tam
             
             # TODO limit requirements to username and company - eric
-            if(reqClass == 'User'): updateWithXeditable(request, User)
+            if(reqClass == 'Inspector'): updateWithXeditable(request, Inspector)
             if(reqClass == 'Property'):
                 req = request.POST 
                 if req.get('name') == 'propertyTypeId':
@@ -197,10 +147,11 @@ def inspector_start(request):
         'propTypeList' : propTypeList,
         'buildTypeList' : buildTypeList
     })
-##### end of REPORT_START region ######
 
 
-##### ROOM region ######
+
+
+## #/ (ROOMS)
 def room(request, property_id):
     # get individual property
     property = get_object_or_404(Property, id = property_id)
@@ -235,7 +186,24 @@ def room(request, property_id):
             'property' : property,
             'roomType' : roomType
         })
+## #/# (COMPONENTS)
+def component(request, property_id, room_id):
+    room = get_object_or_404(Room, id = room_id)
 
+    return render(request, 'inspection/component.html', {
+    'room' : room
+    }) 
+## #/delete (PROP) 
+def deleteProp(request, property_id):
+    # change the selected property to True
+    if request.method == 'POST':
+        selectedProp = get_object_or_404(Property, id=property_id)
+        selectedProp.delete()
+    allProperties = get_list_or_404(Property.objects.order_by('-id'))
+    return render(request, 'inspection/partial/dashboard.partialreports.html', {
+        'allProperties' : allProperties
+    })
+## #/#/delete (ROOM)
 def deleteRoom(request, property_id, room_id):
     selectedRoom = get_object_or_404(Room, id=room_id).delete()
 
@@ -244,14 +212,21 @@ def deleteRoom(request, property_id, room_id):
     return render(request, 'inspection/partial/room.partial.html', {
         'property' : property
     })
+### /REPORT PAGES ###
 
-##### COMPONENT region ######
-def component(request, property_id, room_id):
-    room = get_object_or_404(Room, id = room_id)
 
-    return render(request, 'inspection/component.html', {
-        'room' : room
-    }) 
-##### end of COMPONENT region ######
 
-    
+### FOOTER LINKS ###
+## ABOUT 
+def about(request):
+    return render(request, 'inspection/about.html')
+## CONTACT 
+def contact(request):
+    return render(request, 'inspection/contact.html')
+## TECHNICAL_ARTICLES
+def articles(request):
+    return render(request, 'inspection/articles.html')
+## TERMS_CONDITIONS
+def terms(request):
+    return render(request, 'inspection/terms.html')
+### /FOOTER LINKS ###

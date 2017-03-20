@@ -1,29 +1,25 @@
-{% extends 'inspection/base.html '%}
-
+{% extends 'inspection/base.html '%} 
+{% block title %}Edit Room{% endblock %} 
 {% block content %}
-<div class="row">
-    <div class="col col-xs-12">
-        <table>
-            <thead>
-                <th>Component</th>
-                <th>Fault</th>
-                <th>Image</th>
-            </thead>
-            <tbody>
-        {% if room.component_set.all %}
-            {% for component in room.component_set.all %}
-            <tr>
-                <td>{{ component.componentName }}</td>
-                <td>{{ component.faultDescription}}
-            </tr>
-            {% endfor %}
-            
-        {% endif %}
-            </tbody>
-        </table>
-    </div>
-</div>
+  <div class="col col-xs-12">
 
-
-
+    <!-- RESTYLE PAGE WITH BOOTSTRAP ONCE BACKEND FIXED -->
+    <table>
+      <thead>
+        <th>Component</th>
+        <th>Fault</th>
+        <th>Image</th>
+      </thead>
+      <tbody>
+        {% if room.component_set.all %} {% for component in room.component_set.all %}
+        <tr>
+          <td>{{ component.componentName }}</td>
+          <td>{{ component.faultDescription}}
+        </tr>
+        {% endfor %} {% endif %}
+      </tbody>
+    </table>
+    
+    
+  </div>
 {% endblock %}

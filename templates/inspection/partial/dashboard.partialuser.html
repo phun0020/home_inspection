@@ -1,0 +1,32 @@
+{% if users %} 
+    {% for user in users %}
+    <div class="col-xs-10">
+      <div id="usernameDetail">
+        <h3>{{user.username}}</h3>
+      </div>
+    </div>
+
+    <div class="col-xs-2 pull-right h3 ">
+      <a href="/profile/" class="btn btn-default">
+        <span class="glyphicon glyphicon-pencil"></span>
+      </a>
+    </div>
+
+    <div class="col-xs-12">
+      <div class="userDetail">
+        <h4 class="inline">Company: </h4>{{user.company}}</div>
+      <div class="userDetail">
+        <h4 class="inline">Email: </h4>{{user.email}}</div>
+      <div class="userDetail">
+        <h4 class="inline">Password: </h4>{{user.password}}</div>
+      <br/>
+      <div class="userDetail">
+        <h4 class="inline">Newsletter Subscription: </h4><span class="glyphicon glyphicon-ok inline"></span>&nbsp; </div>
+      <div class="userDetail">
+        <h4 class="inline">Paid Member: </h4><span class="glyphicon glyphicon-remove inline"></span></div>
+    </div>
+    {% endfor %} 
+
+{% else %}
+    <h3>You have not logged in</h3> 
+{% endif %}
